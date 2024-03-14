@@ -12,6 +12,7 @@ import {
   import Home from "../pages/Home";
 import InputChart from "../pages/InputChart";
 import Login from "../pages/LogIn";
+import DescriptionInput from "../pages/DescriptionInput";
 
   const AppRoutes=()=>{
     return(
@@ -19,7 +20,8 @@ import Login from "../pages/LogIn";
             <Routes>
                 <Route  path="/" element={<Home />} />\
                 <Route  path="/input" element={<InputChart/>} />
-                <Route  path="/login" element={<Login/>} />                
+                <Route  path="/login" element={<Login/>} />        
+                <Route  path="/details" element={<DescriptionInput/>} />                
             </Routes>
         </BrowserRouter>
     )

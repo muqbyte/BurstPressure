@@ -19,29 +19,33 @@ const InputChart=()=>{
             const length = e.target.length.value;
             const width = e.target.width.value;
             const diameter = e.target.diameter.value;
+            const depth=e.target.depth.value;
+            const thickness=e.target.thickness.value;
+            const thickPercentage=e.target.thickPercentage.value
             // console.log(length,width,diameter, selectedComposite,selectedTensile)
 
             const reqBody={
                 length:length,
                 width:width,
                 diameter:diameter,
+                depth:depth,
+                thickness:thickness,
+                thickPercentage:thickPercentage,
                 tensile:selectedTensile,
-                compostie:selectedComposite
+                composite:selectedComposite,
             }
             console.log(reqBody)
 
             try {
-                const res = await axios.get("http://10.73.2.115:8888/data/machinelearning", reqBody);
-                // console.log(res.data);
+                const res = await axios.post("http://10.73.0.60:5500/api/theory/calculate", reqBody);
+                console.log(res);
                 setSendData(res.data)
                 alert("Registration successful!");
             } catch (error) {
                 console.error(error);
                 alert(error.response.data.message);
             }
-// setSendData(prevCondition => !prevCondition)
-//     //   setSendData(true);
-//       console.log("ancestor", sendData)
+
     };
 
   
@@ -65,7 +69,7 @@ const InputChart=()=>{
                 <div style={{marginBottom:20}}>
                     <FormInput handleSubmit={handleSubmit}/>
                 </div>
-                    <BurstChart data={sendData}/>
+                    {/* <BurstChart data={sendData}/> */}
                </ChartLayout>
             </InputLayout>
         </div>
