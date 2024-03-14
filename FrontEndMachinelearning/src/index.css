@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "GoldmanBold";
+    src: local("GoldmanBold"),
+     url("./assets/fonts/Goldman-Bold.ttf") format("truetype");
+    font-weight: bold;
+   }
+
+   @font-face {
+    font-family: "GoldmanRegular";
+    src: local("GoldmanRegular"),
+     url("./assets/fonts/Goldman-Regular.ttf") format("truetype");
+    font-weight: normal;
+   }
+
+   @font-face {
+    font-family: "OrbitronBold";
+    src: local("OrbitronBold"),
+     url("./assets/fonts/Orbitron-Bold.ttf") format("truetype");
+    font-weight: normal;
+   }
+
+   @font-face {
+    font-family: "OrbitronMedium";
+    src: local("OrbitronMedium"),
+     url("./assets/fonts/Orbitron-Medium.ttf") format("truetype");
+    font-weight: normal;
+   }
+
+   @font-face {
+    font-family: "OrbitronRegular";
+    src: local("OrbitronRegular"),
+     url("./assets/fonts/Orbitron-Regular.ttf") format("truetype");
+    font-weight: normal;
+   }
+   
