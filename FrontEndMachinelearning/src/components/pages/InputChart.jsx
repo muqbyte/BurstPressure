@@ -37,7 +37,7 @@ const InputChart=()=>{
             console.log(reqBody)
 
             try {
-                const res = await axios.post("http://10.73.0.60:5500/api/theory/calculate", reqBody);
+                const res = await axios.get("http://10.73.2.115:8888/data/machinelearning", reqBody);
                 console.log(res);
                 setSendData(res.data)
                 alert("Registration successful!");
@@ -69,7 +69,7 @@ const InputChart=()=>{
                 <div style={{marginBottom:20}}>
                     <FormInput handleSubmit={handleSubmit}/>
                 </div>
-                    {/* <BurstChart data={sendData}/> */}
+                    <BurstChart data={sendData}/>
                </ChartLayout>
             </InputLayout>
         </div>
