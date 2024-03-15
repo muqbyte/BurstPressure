@@ -6,11 +6,14 @@ import FormInput from "../forms/FormInput";
 import SecondNavigation from "../navigation/SecondNavigation";
 import ChartLayout from "../layout/ChartLayout";
 import axios from "axios";
+import SecondChart from "../charts/PredictionChart";
+import CalculatedChart from "../charts/CalculatedChart";
 
 
 
 const InputChart=()=>{
     const [sendData, setSendData] = useState(false);
+    const [combinePredic, setCombinePredict]=useState([])
 
     const handleSubmit = async(e, selectedTensile, selectedComposite) => {
 
@@ -46,6 +49,27 @@ const InputChart=()=>{
                 alert(error.response.data.message);
             }
 
+            try {
+                const repaired = await Promise.all([
+                    axios.get("https://pipeline.eagleattech.com/api/burst/prediction?category=repaired", { params: reqBody }),
+                    axios.get("https://pipeline.eagleattech.com/api/burst/prediction?category=unrepaired", { params: reqBody }),
+                ]);
+                const predictArray=repaired[0].data
+                const unpredict=repaired[1].data[1]
+                // console.log("repaired",predictArray)
+                // console.log("unrepaired",unpredict)
+
+                const tempo=[...predictArray,...unpredict]
+                console.log("tempo",tempo)
+
+                // combinePredic()
+                // // setSendData(res.data)
+                // alert("Registration successful!");
+            } catch (error) {
+                console.error(error);
+                alert(error.response.data.message);
+            }
+
     };
 
   
@@ -70,6 +94,8 @@ const InputChart=()=>{
                     <FormInput handleSubmit={handleSubmit}/>
                 </div>
                     <BurstChart data={sendData}/>
+                {/* <SecondChart data={sendData}/> */}
+                {/* <CalculatedChart data={sendData}/> */}
                </ChartLayout>
             </InputLayout>
         </div>
