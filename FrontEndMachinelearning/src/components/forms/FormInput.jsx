@@ -103,7 +103,7 @@ const FormInput=({handleSubmit})=>{
 
     return(
         <form  onSubmit={(event)=>handleSubmit(event,selectedTensile,selectedComposite)}>
-        <div className="flex flex-row justify-evenly" >
+        <div className="flex flex-row items-center justify-evenly" >
            
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
                 <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Length</label>
@@ -121,20 +121,19 @@ const FormInput=({handleSubmit})=>{
             </div>
 
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                <div>
-                <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Depth of corrosion</label>
-                <input type="number" id="depth" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="depth"/>
+                <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+                    <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Depth of corrosion</label>
+                    <input type="number" step="any" id="depth" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="depth"/>
                 </div>
-                <div>
-                <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Percentage of corrosion</label>
-                <input type="number" id="depth" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="%" required  style={{width:100}} name="depth"/>
+                <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+                    <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Percentage of corrosion</label>
+                    <input type="number" id="thickPercentage" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="%" required  style={{width:100}} name="thickPercentage"/>
                 </div>
-              
             </div>
 
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
                 <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Thickness</label>
-                <input type="number" id="thickness" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="thickness"/>
+                <input type="number" step="any" id="thickness" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="thickness"/>
             </div>
 
             {/* <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>

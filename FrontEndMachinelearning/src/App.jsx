@@ -8,7 +8,7 @@ import { PDFDownloadLink } from '@react-pdf/renderer'
 import PdfSubmit from './components/pdf/PdfSubmit'
 import MyChart from './components/charts/BurstImage'
 import DownloadPDF from './components/pdf/PdfTable'
-import Table from './components/pdf/TableExample'
+
 
 function App() {
  

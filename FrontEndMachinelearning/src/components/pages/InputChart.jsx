@@ -40,7 +40,7 @@ const InputChart=()=>{
             console.log(reqBody)
 
             try {
-                const res = await axios.get("http://10.73.2.115:8888/data/machinelearning", reqBody);
+                const res = await axios.post("https://pipeline.eagleattech.com/api/theory/calculate", reqBody);
                 console.log(res);
                 setSendData(res.data)
                 alert("Registration successful!");
@@ -55,12 +55,17 @@ const InputChart=()=>{
                     axios.get("https://pipeline.eagleattech.com/api/burst/prediction?category=unrepaired", { params: reqBody }),
                 ]);
                 const predictArray=repaired[0].data
-                const unpredict=repaired[1].data[1]
-                // console.log("repaired",predictArray)
-                // console.log("unrepaired",unpredict)
+                const unpredict=repaired[1].data[0]
+                const unrepairArray=[];
+                unrepairArray.push(unpredict)
+                console.log("repaired",predictArray)
+                console.log("unrepaired", unrepairArray)
 
-                const tempo=[...predictArray,...unpredict]
-                console.log("tempo",tempo)
+                const tempo=[...predictArray,...unrepairArray]
+                if(tempo.length>0){
+                    setCombinePredict(tempo)
+                    console.log("tempo",combinePredic);
+                }
 
                 // combinePredic()
                 // // setSendData(res.data)
@@ -90,10 +95,10 @@ const InputChart=()=>{
             <InputLayout>
             <SecondNavigation/>
                <ChartLayout>
-                <div style={{marginBottom:20}}>
+                <div>
                     <FormInput handleSubmit={handleSubmit}/>
                 </div>
-                    <BurstChart data={sendData}/>
+                    <BurstChart data={sendData} predictData={combinePredic}/>
                 {/* <SecondChart data={sendData}/> */}
                 {/* <CalculatedChart data={sendData}/> */}
                </ChartLayout>

@@ -54,13 +54,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const PdfFile = ({ chartImage, combinedData }) => {
+const PdfPredict = ({ chartImage, combinedData }) => {
     return (
       <Document>
         <Page style={styles.body}>
           <Image src={PetronasLogo} style={styles.logoImage} />
           <Image src={chartImage} style={styles.chartImage} />
-          <Text>Calculated Chart</Text>
+          <Text>Predict Chart</Text>
           <View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell}>Category</Text>
@@ -78,4 +78,4 @@ const PdfFile = ({ chartImage, combinedData }) => {
     );
   };
 
-export default PdfFile;
+export default PdfPredict;

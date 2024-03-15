@@ -87,28 +87,49 @@ import React, { useState } from "react";
 import CalculatedChart from "./CalculatedChart";
 import PredictionChart from "./PredictionChart";
 
-const BurstChart=(props)=>{
-  const [calculatedPage, setCalculatedPage]= useState(true)
-  const [predictionPage, setPredictionPage]=useState(false)
+const BurstChart = (props) => {
+  const [selectedChart, setSelectedChart] = useState("calculated");
 
-  const handlePage=()=>{
-    setCalculatedPage(!true)
-  }
+  const handleChartChange = (event) => {
+    setSelectedChart(event.target.value);
+  };
 
-  const data=props.data
-  return(
+  const data = props.data;
+  const predictData = props.predictData;
+
+  return (
     <div>
-      <div>
-        <CalculatedChart data={data}/>
-      </div>
+      <select
+        value={selectedChart}
+        onChange={handleChartChange}
+        style={{
+          padding: '2px',
+          fontSize: '16px',
+          // border: '1px solid #ccc',
+          borderRadius: '4px',
+          outline: 'none',
+          backgroundColor:"#3b82f6",
+          color:"white"
+        }}
+      >
+        <option value="calculated" style={{color:"white"}}>Calculated Chart</option>
+        <option value="prediction">Prediction Chart</option>
+      </select>
 
-      <div>
-        <PredictionChart/>
-      </div>
+      {selectedChart === "calculated" && (
+        <div>
+          <CalculatedChart data={data} />
+        </div>
+      )}
 
-      <button onClick={handlePage}>Change Chart</button>
+      {selectedChart === "prediction" && (
+        <div>
+          <PredictionChart predictData={predictData} />
+        </div>
+      )}
     </div>
+  );
+};
 
-  )
-}
 export default BurstChart;
+

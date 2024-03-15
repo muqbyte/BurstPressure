@@ -59,7 +59,7 @@ const CalculatedChart = (props) => {
 
   return  (
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}} ref={chartRef}>
-         <ResponsiveContainer width="100%" height={350}>
+         <ResponsiveContainer width="100%" height={290}>
         <ScatterChart margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
           <XAxis dataKey="x" tick={{ fill: '#6ad6d6' }} stroke="orange" />
           <YAxis dataKey="y" tick={{ fill: '#6ad6d6' }} stroke="orange" />
@@ -70,7 +70,7 @@ const CalculatedChart = (props) => {
       </ResponsiveContainer>
       <div style={{marginTop:20}}>
         {chartImage && (
-          <PDFDownloadLink document={<PdfFile chartImage={chartImage} />}  fileName="Chart.pdf">
+          <PDFDownloadLink document={<PdfFile chartImage={chartImage} combinedData={combinedData} />}  fileName="Chart.pdf">
             {({ loading }) => (
               loading ? <button>loading document...</button> : <button className="px-6 py-1 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Download Chart PDF</button>
             )}

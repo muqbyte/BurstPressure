@@ -14,7 +14,7 @@ const ChartLayout = ({ children }) => {
         marginLeft:20,
         marginRight:20,
         // padding:10,
-        marginTop:10,
+        // marginTop:10,
         paddingTop:5
         
  
