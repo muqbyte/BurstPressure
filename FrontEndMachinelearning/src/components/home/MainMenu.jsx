@@ -1,5 +1,5 @@
 import React from "react";
-import Pipe from '../../assets/Pipe1.gif'
+import Pipe from '../../assets/animationPipe.gif'
 import '../../assets/fonts/Goldman-Regular.ttf';
 import Piping from "../../assets/BackgroundPiping.png"
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,7 @@ const MainMenu=()=>{
             </div>
 
             <div style={{flex:1, display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
-                <img src={Pipe} width={300}/>
+                <img src={Pipe} />
             </div>
         </div>
     )
