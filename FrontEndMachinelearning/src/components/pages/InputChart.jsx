@@ -95,7 +95,7 @@ const InputChart=()=>{
             <InputLayout>
             <SecondNavigation/>
                <ChartLayout>
-                <div style={{border:"2px solid"}}>
+                <div >
                     <FormInput handleSubmit={handleSubmit}/>
                 </div>
                     <BurstChart data={sendData} predictData={combinePredic}/>
