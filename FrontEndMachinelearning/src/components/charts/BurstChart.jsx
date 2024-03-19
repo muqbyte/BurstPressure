@@ -105,11 +105,12 @@ const BurstChart = (props) => {
         style={{
           padding: '2px',
           fontSize: '16px',
-          // border: '1px solid #ccc',
+          // border: '1px solid',
           borderRadius: '4px',
           outline: 'none',
           backgroundColor:"#3b82f6",
-          color:"white"
+          color:"white",
+          marginBottom:50
         }}
       >
         <option value="calculated" style={{color:"white"}}>Calculated Chart</option>

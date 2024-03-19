@@ -104,15 +104,15 @@ const FormInput=({handleSubmit})=>{
     return(
         <form  onSubmit={(event)=>handleSubmit(event,selectedTensile,selectedComposite)}>
         <div style={{display:"flex", flexDirection:"column", justifyContent:"space-around",height:"87vh"}} >
-            <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+            <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
 
                 <div style={{display:"flex", flexDirection:"row"}}>
                     <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Defect Characteristic</h2>
                 </div>
 
-                <div style={{display:"flex", flexDirection:"row", justifyContent:"space-evenly", alignItems:"self-end", gap:10}}>
+                <div style={{display:"flex", flexDirection:"row",  alignItems:"self-end", width:"100%"}}>
 
-                    <div style={{display:"flex", flexDirection:"column"}}>
+                    <div style={{display:"flex", flexDirection:"column", width:"50%"}}>
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:10}}>
                             <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Length</label>
                             <input type="text" id="length" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required style={{width:100}} />
@@ -130,7 +130,7 @@ const FormInput=({handleSubmit})=>{
                             </div>
                     </div>
 
-                    <div style={{display:"flex", flexDirection:"column"}}>
+                    <div style={{display:"flex", flexDirection:"column",width:"50%"}}>
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:10}}>
                             <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Width</label>
                             <input type="text" id="width" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required style={{width:100}} name="width"/>
@@ -150,7 +150,7 @@ const FormInput=({handleSubmit})=>{
                     <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Base Pipe</h2>
                 </div>
 
-                <div style={{display:"flex", flexDirection:"row", justifyContent:"space-evenly", alignItems:"self-end", width:"100%"}}>
+                <div style={{display:"flex", flexDirection:"row", alignItems:"self-end", width:"100%"}}>
 
                     <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center", width:"50%"}}>
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
