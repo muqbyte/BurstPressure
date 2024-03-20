@@ -26,7 +26,7 @@ const CalculatedChart = (props) => {
         .catch((error) => {
           console.error("Error capturing chart:", error);
         });
-    }, 5000);
+    }, 3000);
   };
 
 

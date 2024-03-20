@@ -13,12 +13,12 @@ const MainMenu=()=>{
 
  return(
         <div style={{display:"flex", flexDirection:"row", justifyContent:"center",alignItems:"center"}}>
-            <div style={{display:"flex", flexDirection:"column",  justifyContent:"center",alignItems:"flex-start",height:"100%", marginLeft:20}}>
+            <div style={{display:"flex", flexDirection:"column",  justifyContent:"center",alignItems:"flex-start",height:"100%", marginLeft:20, gap:10}}>
                 <div>
                     <h2 style={{fontFamily:"GoldmanRegular", fontSize:35, fontWeight:"normal", color:"white"}}>FINITE ELEMENT ANALYSIS FOR PIPING</h2>
                 </div>
 
-                <div>
+                <div style={{marginBottom:10}}>
                     <h3 style={{fontFamily:"GoldmanRegular",fontSize:30, fontWeight:"normal",color:"white"}}>A dedicated platform in calculating the burst <br/> pressure in a piping system</h3>
                 </div>
 

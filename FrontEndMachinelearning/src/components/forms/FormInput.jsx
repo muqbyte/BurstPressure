@@ -6,6 +6,8 @@ import '../../assets/fonts/Goldman-Regular.ttf';
 import Popup from 'reactjs-popup';
 
 
+
+
 const FormInput=({handleSubmit})=>{
     const [handleMouse, setHandleMouse]=useState(false)
     const [sendData,setData]=useState(false)
@@ -17,6 +19,9 @@ const FormInput=({handleSubmit})=>{
     const [infoState, setInfoState]=useState({})
     const [submitComposite, setSubmitComposite]=useState("")
     
+    const informationPage=()=>{
+        navigate("/details")
+    }   
 
    
 
@@ -107,7 +112,7 @@ const FormInput=({handleSubmit})=>{
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
 
                 <div style={{display:"flex", flexDirection:"row"}}>
-                    <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Defect Characteristic</h2>
+                    <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"OrbitronBold",fontSize:15}}>Defect Characteristic</h2>
                 </div>
 
                 <div style={{display:"flex", flexDirection:"row",  alignItems:"self-end", width:"100%"}}>
@@ -143,11 +148,15 @@ const FormInput=({handleSubmit})=>{
                     </div>
                 </div>
             </div>
+
+            <div style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
+                <button style={{fontFamily:"OrbitronBold",fontSize:15, color:"white",display:"flex", flexDirection:"row",justifyContent:"center", alignItems:"center", gap:5}} onClick={informationPage}>Information <FcInfo size={30}/></button>
+            </div>
            
           <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
                 
                 <div style={{display:"flex", flexDirection:"row"}}>
-                    <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Base Pipe</h2>
+                    <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"OrbitronBold",fontSize:15}}>Base Pipe</h2>
                 </div>
 
                 <div style={{display:"flex", flexDirection:"row", alignItems:"self-end", width:"100%"}}>
