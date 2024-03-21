@@ -18,6 +18,7 @@ const FormInput=({handleSubmit})=>{
     const [typeState,setTypeState]=useState(false)
     const [infoState, setInfoState]=useState({})
     const [submitComposite, setSubmitComposite]=useState("")
+    const [isOpen, setIsOpen] = useState(false);
     
     const informationPage=()=>{
         navigate("/details")
@@ -83,11 +84,17 @@ const FormInput=({handleSubmit})=>{
         if (selectedValue === "Type 1") {
             setInfoState(infoPass);
             console.log("info", infoPass); // Logging infoPass instead of infoState
+            setIsOpen(true); // Open the popup when Type 1 is chosen
         } else if (selectedValue === "Type 2" || selectedValue === "Type 3") {
             setInfoState(typeTwoPass);
             console.log("info", typeTwoPass); // Logging typeTwoPass instead of infoState
+            setIsOpen(true); // Open the popup when Type 1 is chosen
         }
     }
+
+    const closePopup = () => {
+        setIsOpen(false);
+    };
     
 
     const DetailsPage=()=>{
@@ -103,46 +110,48 @@ const FormInput=({handleSubmit})=>{
     }
 
     useEffect(() => {
-        console.log(selectedComposite);
+        // Update infoState based on selectedComposite
+        if (selectedComposite && infoPass[selectedComposite]) {
+            setInfoState(infoPass[selectedComposite]);
+        }
     }, [selectedComposite]);
-
     return(
         <form  onSubmit={(event)=>handleSubmit(event,selectedTensile,selectedComposite)}>
         <div style={{display:"flex", flexDirection:"column", justifyContent:"space-around",height:"87vh"}} >
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
 
                 <div style={{display:"flex", flexDirection:"row"}}>
-                    <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"OrbitronBold",fontSize:15}}>Defect Characteristic</h2>
+                    <h2 className="block mb-2 text-sm font-bold text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>DEFECT CHARACTERISTICS</h2>
                 </div>
 
                 <div style={{display:"flex", flexDirection:"row",  alignItems:"self-end", width:"100%"}}>
 
                     <div style={{display:"flex", flexDirection:"column", width:"50%"}}>
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:10}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Length</label>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Length</label>
                             <input type="text" id="length" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required style={{width:100}} />
                         </div>
 
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Depth of corrosion</label>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Depth of corrosion</label>
                             <input type="text" step="any" id="depth" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="depth"/>
                         </div>
                     </div>
 
                     <div style={{display:"flex", flexDirection:"column"}}>
                             <div >
-                                <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">OR</h2>
+                                <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>OR</h2>
                             </div>
                     </div>
 
                     <div style={{display:"flex", flexDirection:"column",width:"50%"}}>
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:10}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Width</label>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Width</label>
                             <input type="text" id="width" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required style={{width:100}} name="width"/>
                         </div>
 
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Percentage of corrosion</label>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Percentage of corrosion</label>
                             <input type="text" id="thickPercentage" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="%" required  style={{width:100}} name="thickPercentage"/>
                         </div>
                     </div>
@@ -150,25 +159,25 @@ const FormInput=({handleSubmit})=>{
             </div>
 
             <div style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
-                <button style={{fontFamily:"OrbitronBold",fontSize:15, color:"white",display:"flex", flexDirection:"row",justifyContent:"center", alignItems:"center", gap:5}} onClick={informationPage}>Information <FcInfo size={30}/></button>
+                <button style={{fontFamily:"PoppinsRegular",fontSize:15, color:"white",display:"flex", flexDirection:"row",justifyContent:"center", alignItems:"center", gap:5}} onClick={informationPage}>Information <FcInfo size={30}/></button>
             </div>
            
           <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
                 
                 <div style={{display:"flex", flexDirection:"row"}}>
-                    <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"OrbitronBold",fontSize:15}}>Base Pipe</h2>
+                    <h2 className="block mb-2 text-sm font-bold text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>BASE PIPE</h2>
                 </div>
 
                 <div style={{display:"flex", flexDirection:"row", alignItems:"self-end", width:"100%"}}>
 
                     <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center", width:"50%"}}>
-                        <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Diameter</label>
+                        <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:5}}>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Diameter</label>
                             <input type="text" id="diameter" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="diameter"/>
                         </div>
 
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tensile</label>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Tensile</label>
                             <div className="relative w-full lg:max-w-sm">
                             <select className="w-full p-1 text-center text-white bg-gray-700 rounded-lg outline-none" style={{width:100}} onChange={handleTensile}>
                             <option hidden disabled selected value="">Psi</option>
@@ -181,13 +190,13 @@ const FormInput=({handleSubmit})=>{
                     </div>
 
                     <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center", width:"50%"}}>
-                        <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Thickness</label>
+                        <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:5}}>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Thickness</label>
                             <input type="text" step="any" id="thickness" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="thickness"/>
                         </div>
 
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} >
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Composite</label>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Composite</label>
                             <div className="relative w-full lg:max-w-sm">
                             <select className="w-full p-1 text-center text-white bg-gray-700 rounded-lg outline-none" style={{width:100}} onChange={handleComposite}>
                             <option hidden disabled selected value="">Type</option>
@@ -197,36 +206,39 @@ const FormInput=({handleSubmit})=>{
                             </select>
                             </div>
                             <Popup
-                                open={!!selectedComposite}
-                                modal
-                                contentStyle={{
-                                    backgroundColor: "#fff",
-                                    padding: "20px",
-                                    borderRadius: "8px",
-                                    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-                                    maxWidth: "400px"
-                                }}>
-                            <div style={{ padding: '20px' }}>
-                                <h2>Selected Composite: {selectedComposite}</h2>
-                                {/* Table */}
-                                <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "20px" }}>
-                                    <thead>
-                                        <tr>
-                                            <th>Property</th>
-                                            <th>Value</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {Object.entries(infoState).map(([property, value]) => (
-                                            <tr key={property}>
-                                                <td>{property}</td>
-                                                <td>{value}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </Popup>
+    open={isOpen}
+    modal
+    onClose={closePopup}
+    contentStyle={{
+        backgroundColor: "#fff",
+        padding: "20px",
+        borderRadius: "8px",
+        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+        maxWidth: "400px"
+    }}
+>
+    <div style={{ padding: 2 }}>
+        <h2 style={{fontFamily:"PoppinsRegular"}}>Selected Composite: {selectedComposite}</h2>
+        {/* Table */}
+        <table className="w-full text-left border-collapse">
+            <thead>
+                <tr >
+                    <th className="px-4 py-2 text-gray-800 bg-gray-200 border border-gray-300">Property</th>
+                    <th className="px-4 py-2 text-gray-800 bg-gray-200 border border-gray-300">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {Object.entries(infoState).map(([property, value]) => (
+                    <tr key={property}>
+                        <td className="border border-gray-300" style={{width:250, padding:2,fontFamily:"PoppinsRegular"}}>{property}</td>
+                        <td className="text-center border border-gray-300" style={{fontFamily:"PoppinsRegular"}}>{value}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+        <button className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-700" onClick={closePopup}>Close</button>
+    </div>
+</Popup>
                         </div>
                     </div>
                 </div>

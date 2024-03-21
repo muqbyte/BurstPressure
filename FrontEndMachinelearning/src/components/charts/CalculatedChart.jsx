@@ -58,8 +58,9 @@ const CalculatedChart = (props) => {
   }, [allData]);
 
   return  (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}} ref={chartRef}>
-         <ResponsiveContainer width="100%" height={290}>
+    <div  style={{display:"flex", flexDirection:"column",alignItems:"center"}}>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width:"100%"}} ref={chartRef}>
+      <ResponsiveContainer width="100%" height={290}>
         <ScatterChart margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
           <XAxis dataKey="x" tick={{ fill: '#6ad6d6' }} stroke="orange" />
           <YAxis dataKey="y" tick={{ fill: '#6ad6d6' }} stroke="orange" />
@@ -68,7 +69,27 @@ const CalculatedChart = (props) => {
           <Tooltip cursor={{ stroke: 'black', strokeDasharray: "3 3" }} />
         </ScatterChart>
       </ResponsiveContainer>
-      <div style={{marginTop:20}}>
+      <div style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
+      {combinedData.length > 0 && <table className="text-left table-auto min-w-max">
+        <thead>
+          <tr>
+            <th className="border-b border-blue-gray-100 bg-blue-gray-50" style={{color:"#00C0DA"}}>Model</th>
+            <th className="border-b border-blue-gray-100 bg-blue-gray-50" style={{color:"#00C0DA"}}>Burst Pressure (Pa)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {combinedData.map(({ x,y }) => (
+            <tr key={x} className="even:bg-blue-gray-50/50">
+              <td className="p-2" style={{color:"#00C0DA"}}>{x}</td>
+              <td className="p-2" style={{color:"#00C0DA"}}>{y}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>}
+      </div>
+      </div>
+         
+      <div style={{marginTop:10}}>
         {chartImage && (
           <PDFDownloadLink document={<PdfFile chartImage={chartImage} combinedData={combinedData} />}  fileName="Chart.pdf">
             {({ loading }) => (

@@ -60,7 +60,7 @@
     font-family: "OrbitronBold";
     src: url("./assets/fonts/Orbitron-Bold.ttf");
    }
-   .GoldmanRegular{
+   .OrbitronBold{
     font-family: "OrbitronBold";
    };
 
@@ -68,7 +68,7 @@
     font-family: "OrbitronMedium";
     src: url("./assets/fonts/Orbitron-Medium.ttf");
    }
-   .GoldmanRegular{
+   .OrbitronMedium{
     font-family: "OrbitronMedium";
    };
 
@@ -76,6 +76,31 @@
     font-family: "OrbitronRegular";
     src: url("./assets/fonts/Orbitron-Regular.ttf");
    }
-   .GoldmanRegular{
+   .OrbitronRegular{
     font-family: "OrbitronRegular";
    };
+
+   @font-face {
+    font-family: "RobotoBlack";
+    src: url("./assets/fonts/Roboto-Black.ttf");
+   }
+   .RobotoBlack{
+    font-family: "RobotoBlack";
+   };
+
+   @font-face {
+    font-family: "RobotoSlab";
+    src: url("./assets/fonts/RobotoSlab-VariableFont_wght.ttf");
+   }
+   .RobotoBlack{
+    font-family: "RobotoSlab";
+   };
+
+   @font-face {
+    font-family: "PoppinsRegular";
+    src: url("./assets/fonts/Poppins-Regular.ttf");
+   }
+   .PoppinsRegular{
+    font-family: "PoppinsRegular";
+   };
+

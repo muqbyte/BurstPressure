@@ -74,6 +74,24 @@ const PredictionChart = (props) => {
           <Tooltip cursor={{ stroke: 'black', strokeDasharray: "3 3" }} />
         </ScatterChart>
       </ResponsiveContainer>
+      <div style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
+      {combinedPredict.length > 0 && <table className="text-left table-auto min-w-max">
+        <thead>
+          <tr>
+            <th className="border-b border-blue-gray-100 bg-blue-gray-50" style={{color:"#00C0DA"}}>Model</th>
+            <th className="border-b border-blue-gray-100 bg-blue-gray-50" style={{color:"#00C0DA"}}>Burst Pressure (Pa)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {combinedPredict.map(({ x,y }) => (
+            <tr key={x} className="even:bg-blue-gray-50/50">
+              <td className="p-2" style={{color:"#00C0DA"}}>{x}</td>
+              <td className="p-2" style={{color:"#00C0DA"}}>{y}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>}
+      </div>
       <div style={{marginTop:20}}>
         {chartImage && (
           <PDFDownloadLink document={<PdfPredict chartImage={chartImage} combinedData={combinedPredict}/>}  fileName="Chart.pdf">
