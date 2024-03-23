@@ -95,7 +95,7 @@ const InputChart=()=>{
             <InputLayout>
             <SecondNavigation/>
                <ChartLayout>
-                <div style={{width:"30%"}}>
+                <div style={{width:"30%"}} className="bg-gray-900">
                     <FormInput handleSubmit={handleSubmit}/>
                 </div>
                 <div style={{width:"70%"}}>
