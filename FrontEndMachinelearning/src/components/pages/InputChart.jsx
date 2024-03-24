@@ -8,6 +8,7 @@ import ChartLayout from "../layout/ChartLayout";
 import axios from "axios";
 import SecondChart from "../charts/PredictionChart";
 import CalculatedChart from "../charts/CalculatedChart";
+import SecondForm from "../forms/SecondForm";
 
 
 
@@ -95,8 +96,9 @@ const InputChart=()=>{
             <InputLayout>
             <SecondNavigation/>
                <ChartLayout>
-                <div style={{width:"30%"}} className="bg-gray-900">
-                    <FormInput handleSubmit={handleSubmit}/>
+                <div style={{width:"30%", backgroundColor:"#263238",border:"3px solid #018076", borderRadius:10, marginBottom:10}}>
+                    {/* <FormInput handleSubmit={handleSubmit}/> */}
+                    <SecondForm handleSubmit={handleSubmit}/>
                 </div>
                 <div style={{width:"70%"}}>
                     <BurstChart data={sendData} predictData={combinePredic}/>
