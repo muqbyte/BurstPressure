@@ -121,12 +121,12 @@ const SecondForm=({handleSubmit})=>{
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
 
                 <div style={{display:"flex", flexDirection:"row"}}>
-                    <h2 className="block mb-2 text-sm font-bold text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>DEFECT CHARACTERISTICS</h2>
+                    <h2 className="block mb-2 text-sm font-bold text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>DEFECT CHARACTERISTIC</h2>
                 </div>
 
                 <div style={{display:"flex", flexDirection:"row",  alignItems:"self-end", width:"100%"}}>
 
-                    <div style={{display:"flex", flexDirection:"column", border:"2px solid"}}>
+                    <div style={{display:"flex", flexDirection:"column"}}>
                     <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
     <input placeholder="mm"
       class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" required type="text" id="length" />
@@ -149,13 +149,13 @@ const SecondForm=({handleSubmit})=>{
                         </div>
                     </div>
 
-                    <div style={{display:"flex", flexDirection:"column", border:"2px solid"}}>
+                    <div style={{display:"flex", flexDirection:"column"}}>
                             <div >
                                 <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>OR</h2>
                             </div>
                     </div>
 
-                    <div style={{display:"flex", flexDirection:"column", border:"2px solid"}}>
+                    <div style={{display:"flex", flexDirection:"column"}}>
                     <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
     <input placeholder="mm"
       class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" required type="text" id="width"/>
