@@ -1,106 +1,103 @@
 
-  body {
-    margin: 0;
-  }
-  
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
-  
-  @keyframes logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-      animation: logo-spin infinite 20s linear;
-    }
-  }
-  
-  .card {
-    padding: 2em;
-  }
-  
-  .read-the-docs {
-    color: #888;
-  }
+body {
+  margin: 0;
+}
 
-  
-  @font-face {
-    font-family: "GoldmanBold";
-    src: url("./assets/fonts/Goldman-Bold.ttf");
-   }
-   .GoldmanBold{
-    font-family: "GoldmanBold";
-   };
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
 
-   @font-face {
-    font-family: "GoldmanRegular";
-    src: url("./assets/fonts/Goldman-Regular.ttf");
-   }
-   .GoldmanRegular{
-    font-family: "GoldmanRegular";
-   };
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-   @font-face {
-    font-family: "OrbitronBold";
-    src: url("./assets/fonts/Orbitron-Bold.ttf");
-   }
-   .OrbitronBold{
-    font-family: "OrbitronBold";
-   };
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
 
-   @font-face {
-    font-family: "OrbitronMedium";
-    src: url("./assets/fonts/Orbitron-Medium.ttf");
-   }
-   .OrbitronMedium{
-    font-family: "OrbitronMedium";
-   };
+.card {
+  padding: 2em;
+}
 
-   @font-face {
-    font-family: "OrbitronRegular";
-    src: url("./assets/fonts/Orbitron-Regular.ttf");
-   }
-   .OrbitronRegular{
-    font-family: "OrbitronRegular";
-   };
+.read-the-docs {
+  color: #888;
+}
 
-   @font-face {
-    font-family: "RobotoBlack";
-    src: url("./assets/fonts/Roboto-Black.ttf");
-   }
-   .RobotoBlack{
-    font-family: "RobotoBlack";
-   };
 
-   @font-face {
-    font-family: "RobotoSlab";
-    src: url("./assets/fonts/RobotoSlab-VariableFont_wght.ttf");
-   }
-   .RobotoBlack{
-    font-family: "RobotoSlab";
-   };
+@font-face {
+  font-family: "GoldmanBold";
+  src: url("./assets/fonts/Goldman-Bold.ttf");
+ }
+ .GoldmanBold{
+  font-family: "GoldmanBold";
+ };
 
-   @font-face {
-    font-family: "PoppinsRegular";
-    src: url("./assets/fonts/Poppins-Regular.ttf");
-   }
-   .PoppinsRegular{
-    font-family: "PoppinsRegular";
-   };
+ @font-face {
+  font-family: "GoldmanRegular";
+  src: url("./assets/fonts/Goldman-Regular.ttf");
+ }
+ .GoldmanRegular{
+  font-family: "GoldmanRegular";
+ };
+
+ @font-face {
+  font-family: "OrbitronBold";
+  src: url("./assets/fonts/Orbitron-Bold.ttf");
+ }
+ .OrbitronBold{
+  font-family: "OrbitronBold";
+ };
+
+ @font-face {
+  font-family: "OrbitronMedium";
+  src: url("./assets/fonts/Orbitron-Medium.ttf");
+ }
+ .OrbitronMedium{
+  font-family: "OrbitronMedium";
+ };
+
+ @font-face {
+  font-family: "OrbitronRegular";
+  src: url("./assets/fonts/Orbitron-Regular.ttf");
+ }
+ .OrbitronRegular{
+  font-family: "OrbitronRegular";
+ };
+
+
+ @font-face {
+  font-family: "RobotoSlab";
+  src: url("./assets/fonts/RobotoSlab-VariableFont_wght.ttf");
+ }
+ .RobotoBlack{
+  font-family: "RobotoSlab";
+ };
+
+ @font-face {
+  font-family: "PoppinsRegular";
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+ }
+ .PoppinsRegular{
+  font-family: "PoppinsRegular";
+ };
+
+ input{
+  border:none
+ }
 

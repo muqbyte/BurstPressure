@@ -32,14 +32,14 @@ const CalculatedChart = (props) => {
 
   useEffect(() => {
     if (props.data && props.data.length > 0) {
-      console.log("props",props.data)
+      // console.log("props",props.data)
       setAllData(props.data)
       captureChart();
     }
   }, [props.data]);
 
   useEffect(() => {
-    console.log(allData)
+    // console.log(allData)
     if(allData.length>0){
         const [ASMEB31G, PCCORRC, DNVRPF101, MODASMEB31G] = allData;
         const newData = [];
@@ -52,7 +52,7 @@ const CalculatedChart = (props) => {
   
         // Set the state with the combined data
         setCombinedData(newData);
-        console.log("newData",newData)
+        // console.log("newData",newData)
     }
    
   }, [allData]);

@@ -38,27 +38,36 @@ const PredictionChart = (props) => {
 
   useEffect(() => {
     if (props.predictData && props.predictData.length > 0) {
-      console.log("props",props.predictData)
+      // console.log("props",props.predictData)
       setPredictData(props.predictData)
       captureChart();
     }
   }, [props.data]);
 
   useEffect(() => {
-    console.log(predictData)
+    // console.log("predictData sini", predictData)
     if(predictData.length>0){
-        const [onelayer, twolayer, threelayer, unrepairedlayer] = predictData;
+        const [unrepaired, repairedLayer2, repairedLayer3, repairedLayer4, repairedLayer5] = predictData;
+        // const [onelayer, unrepairedlayer] = predictData;
+        // const [onelayer, twolayer, threelayer, unrepairedlayer] = predictData;
         const newData = [];
 
         // Push each object into the newData array
-        newData.push({ x: onelayer.type, y: onelayer.burst });
-        newData.push({ x: twolayer.type, y: twolayer.burst });
-        newData.push({ x: threelayer.type, y: threelayer.burst });
-        newData.push({ x: unrepairedlayer.category, y: unrepairedlayer.burst });
+        newData.push({ x: "Unrepaired", y: unrepaired });
+        newData.push({ x: "Repaired Layer-2", y: repairedLayer2 });
+        newData.push({ x: "Repaired Layer-3", y: repairedLayer3 });
+        newData.push({ x: "Repaired Layer-4", y: repairedLayer4 });
+        newData.push({ x: "Repaired Layer-5", y: repairedLayer5 });
+        // newData.push({ x: twolayer.type, y: twolayer.burst });
+        // newData.push({ x: threelayer.type, y: threelayer.burst });
+        // newData.push({ x: onelayer.type, y: onelayer.burst });
+        // newData.push({ x: twolayer.type, y: twolayer.burst });
+        // newData.push({ x: threelayer.type, y: threelayer.burst });
+        // newData.push({ x: unrepairedlayer.category, y: unrepairedlayer.burst });
   
         // Set the state with the combined data
         setCombinedPredict(newData);
-        console.log("newData",newData)
+        // console.log("newData",newData)
     }
    
   }, [predictData]);

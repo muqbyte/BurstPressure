@@ -92,13 +92,14 @@ const BurstChart = (props) => {
 
   const handleChartChange = (event) => {
     setSelectedChart(event.target.value);
+    console.log("props.predictData", props.predictData)
   };
 
   const data = props.data;
   const predictData = props.predictData;
 
   return (
-    <div>
+    <div style={{paddingTop:30}}>
       <select
         value={selectedChart}
         onChange={handleChartChange}
