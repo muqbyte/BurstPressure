@@ -18,16 +18,17 @@ const SecondForm=({handleSubmit})=>{
     const [typeState,setTypeState]=useState(false)
     const [infoState, setInfoState]=useState({})
     const [submitComposite, setSubmitComposite]=useState("")
-    const [isOpen, setIsOpen] = useState(false);
     const [corrosionType, setCorrosionType] = useState('Depth of corrosion');
+    const [isOpen, setIsOpen] = useState(false);
     
     const informationPage=()=>{
         navigate("/details")
     }   
 
     
-    const handleTypeChange = (event) => {
-        setCorrosionType(event.target.value);
+    const handleTypeChange = (type) => {
+        setCorrosionType(type);
+        setIsOpen(false); // Close dropdown after selection (optional)
       };
 
     const infoPass={
@@ -113,6 +114,8 @@ const SecondForm=({handleSubmit})=>{
         setHandleMouse(false)
     }
 
+   
+
     useEffect(() => {
         // Update infoState based on selectedComposite
         if (selectedComposite && infoPass[selectedComposite]) {
@@ -161,26 +164,56 @@ const SecondForm=({handleSubmit})=>{
     </div> */}
     </div>
 
-    <div className="flex items-center p-1 space-x-2 bg-gray-900 rounded-lg">
-      <div className="flex items-center">
+    <div className="flex items-center p-1 space-x-2 bg-gray-700 rounded-lg">
+      <div className="flex items-center rounded-lg">
         <input
           type="number"
           placeholder="Enter amount"
-          className="w-40 p-2 bg-transparent rounded-lg focus:outline-none"
+          className="w-40 p-2 text-sm text-white bg-transparent rounded-l-lg focus:outline-none"
+          style={{ color: 'white' }}
         />
-        <div className="p-2 text-white">
+        <div className="p-2 text-sm text-white rounded-r-lg" style={{ width: '30px' }}>
           {corrosionType === 'Depth of corrosion' ? 'mm' : '%'}
         </div>
       </div>
       <div className="relative inline-block text-left">
-        <select
-          value={corrosionType}
-          onChange={handleTypeChange}
-          className="p-2 text-white bg-transparent focus:outline-none"
-        >
-          <option value="Depth of corrosion">Depth of corrosion</option>
-          <option value="Percentage of corrosion">Percentage of corrosion</option>
-        </select>
+        <div>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 text-sm text-white bg-transparent bg-gray-700 rounded-lg outline-none"
+            style={{ color: 'white', width: '200px' }}
+          >
+            {corrosionType}
+            <svg
+              className="w-3 h-3 ml-2"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M10.2929 14.2929C10.6834 13.9024 11.3166 13.9024 11.7071 14.2929C12.0976 14.6834 12.0976 15.3166 11.7071 15.7071L7.70711 19.7071C7.31658 20.0976 6.68342 20.0976 6.29289 19.7071L2.29289 15.7071C1.90237 15.3166 1.90237 14.6834 2.29289 14.2929C2.68342 13.9024 3.31658 13.9024 3.70711 14.2929L7 17.5858L10.2929 14.2929ZM10 6.41421L13.2929 9.70711C13.6834 10.0976 13.6834 10.7308 13.2929 11.1213C12.9024 11.5118 12.2692 11.5118 11.8787 11.1213L10 9.24264L8.12132 11.1213C7.7308 11.5118 7.09763 11.5118 6.70711 11.1213C6.31658 10.7308 6.31658 10.0976 6.70711 9.70711L10 6.41421Z"
+              />
+            </svg>
+          </button>
+          {isOpen && (
+            <ul className="absolute z-10 mt-1 bg-white rounded-lg shadow-lg w-200">
+              <li
+                className="px-4 py-2 text-sm text-gray-800 cursor-pointer hover:bg-gray-200"
+                onClick={() => handleTypeChange('Depth of corrosion')}
+              >
+                Depth of corrosion
+              </li>
+              <li
+                className="px-4 py-2 text-sm text-gray-800 cursor-pointer hover:bg-gray-200"
+                onClick={() => handleTypeChange('Percentage of corrosion')}
+              >
+                Percentage of corrosion
+              </li>
+            </ul>
+          )}
+        </div>
       </div>
     </div>
         {/* <div style={{display:"flex", flexDirection:"column"}}>
