@@ -19,12 +19,16 @@ const SecondForm=({handleSubmit})=>{
     const [infoState, setInfoState]=useState({})
     const [submitComposite, setSubmitComposite]=useState("")
     const [isOpen, setIsOpen] = useState(false);
+    const [corrosionType, setCorrosionType] = useState('Depth of corrosion');
     
     const informationPage=()=>{
         navigate("/details")
     }   
 
-   
+    
+    const handleTypeChange = (event) => {
+        setCorrosionType(event.target.value);
+      };
 
     const infoPass={
         "E1 (Hoop)": 123,
@@ -124,58 +128,87 @@ const SecondForm=({handleSubmit})=>{
                     <h2 className="block mb-2 text-sm font-bold text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>DEFECT CHARACTERISTIC</h2>
                 </div>
 
-                <div style={{display:"flex", flexDirection:"row",  alignItems:"self-end", width:"100%"}}>
+    <div style={{display:"flex", flexDirection:"column",  alignItems:"self-end", width:"100%", gap:60}}>
 
-                    <div style={{display:"flex", flexDirection:"column"}}>
-                    <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
-    <input placeholder="mm"
-      class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="length" />
-    <label
-      class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500" >
-      Length
-    </label>
-  </div>
-
-
-                        <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
-                        <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", marginTop:26}}>
-    <input placeholder="mm"
-      class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="depth"/>
-    <label
-      class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-      Depth of corrosion
-    </label>
-  </div>
-                        </div>
+        <div style={{display:"flex", flexDirection:"row"}}>
+            <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row",    justifyContent:"center", alignItems:"center"}}>
+                <input placeholder="mm"
+                        class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="length" />
+                <label
+                class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500" >
+                    Length
+                </label>
+            </div>
+            <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
+                    <input placeholder="mm"
+                        class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="width"/>
+                    <label
+                        class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                        Width
+                    </label>
                     </div>
 
-                    <div style={{display:"flex", flexDirection:"column"}}>
-                            <div >
-                                <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>OR</h2>
+
+    {/* <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
+        <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", marginTop:26}}>
+            <input placeholder="mm"
+                class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="depth"/>
+            <label
+                class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+            Depth of corrosion
+            </label>
+        </div>
+    </div> */}
+    </div>
+
+    <div className="flex items-center p-1 space-x-2 bg-gray-900 rounded-lg">
+      <div className="flex items-center">
+        <input
+          type="number"
+          placeholder="Enter amount"
+          className="w-40 p-2 bg-transparent rounded-lg focus:outline-none"
+        />
+        <div className="p-2 text-white">
+          {corrosionType === 'Depth of corrosion' ? 'mm' : '%'}
+        </div>
+      </div>
+      <div className="relative inline-block text-left">
+        <select
+          value={corrosionType}
+          onChange={handleTypeChange}
+          className="p-2 text-white bg-transparent focus:outline-none"
+        >
+          <option value="Depth of corrosion">Depth of corrosion</option>
+          <option value="Percentage of corrosion">Percentage of corrosion</option>
+        </select>
+      </div>
+    </div>
+        {/* <div style={{display:"flex", flexDirection:"column"}}>
+            <div >
+                <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>OR</h2>
+            </div>
+            </div> */}
+                {/* <div style={{display:"flex", flexDirection:"column"}}> */}
+                    {/* <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
+                    <input placeholder="mm"
+                        class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="width"/>
+                    <label
+                        class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                        Width
+                    </label>
+                    </div> */}
+
+                        {/* <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+                            <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", marginTop:26}}>
+                                <input placeholder="Percentage of corrosion"
+                                class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="thickPercentage"/>
+                                <label
+                                class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                                Percentage of corrosion
+                                </label>
                             </div>
-                    </div>
-
-                    <div style={{display:"flex", flexDirection:"column"}}>
-                    <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
-    <input placeholder="mm"
-      class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="width"/>
-    <label
-      class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-      Width
-    </label>
-  </div>
-
-                        <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                        <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", marginTop:26}}>
-    <input placeholder="Percentage of corrosion"
-      class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="thickPercentage"/>
-    <label
-      class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-      Percentage of corrosion
-    </label>
-  </div>
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                 </div>
             </div>
 
