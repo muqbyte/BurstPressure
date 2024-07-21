@@ -14,6 +14,7 @@ import InputChart from "../pages/InputChart";
 import Login from "../pages/LogIn";
 import DescriptionInput from "../pages/DescriptionInput";
 import SignUp from "../pages/SignUp";
+import PastData from "../pages/PastData";
 
   const AppRoutes=()=>{
     return(
@@ -23,7 +24,9 @@ import SignUp from "../pages/SignUp";
                 <Route  path="/input" element={<InputChart/>} />
                 <Route  path="/login" element={<Login/>} />   
                 <Route  path="/signup" element={<SignUp/>} />        
-                <Route  path="/details" element={<DescriptionInput/>} />                
+                <Route  path="/details" element={<DescriptionInput/>} />   
+                <Route  path="/pastdata" element={<PastData/>} />                
+
             </Routes>
         </BrowserRouter>
     )
