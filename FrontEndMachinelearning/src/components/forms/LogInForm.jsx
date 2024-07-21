@@ -16,7 +16,7 @@ const LoginForm=()=>{
         };
         console.log(reqBody);
 
-        navigate("/input")
+        navigate("/protectedHome")
     }
     return(
         <section style={{backgroundColor:"#193948", width:"30vw",borderColor:"#018076",borderRadius:20}}>
