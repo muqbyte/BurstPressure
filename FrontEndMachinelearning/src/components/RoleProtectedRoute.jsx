@@ -11,11 +11,14 @@ const RoleProtectedRoute = ({ children, allowedRoles }) => {
         return auth?.role;
       };
 
-      const role = useRole();
+      const role = useRole().toLowerCase();
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
+
+  console.log(role)
+  console.log(allowedRoles)
 //   if (!allowedRoles.includes(role)) {
 //     return <Navigate to="/unauthorized" />;
 //   }

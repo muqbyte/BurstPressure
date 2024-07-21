@@ -1,7 +1,7 @@
 import React from "react";
 import CrossSection from '../../assets/CrossSection.png'
 import Parameter from '../../assets/Parameter.png'
-import Diameter from '../../assets/Diameter.png'
+import Diameter from '../../assets/diameter.png'
 
 const DetailsDrawing=()=>{
     return(

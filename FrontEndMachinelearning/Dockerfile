@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 8500
+EXPOSE 3000
 
 CMD [ "npm", "run", "preview"]
 
