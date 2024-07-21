@@ -7,8 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 const MainMenu=()=>{
     const navigate = useNavigate();
-    const inputPage=()=>{
-        navigate("/input")
+    const loginPage=()=>{
+        navigate("/login")
+    }   
+
+    const signupPage=()=>{
+        navigate("/signup")
     }   
 
  return(
@@ -22,9 +26,15 @@ const MainMenu=()=>{
                     <h3 style={{fontFamily:"GoldmanRegular",fontSize:30, fontWeight:"normal",color:"white"}}>A dedicated platform in calculating the burst <br/> pressure in a piping system</h3>
                 </div>
 
-                <div >
-                    <button style={{backgroundColor:"#00A19C", border:"none", fontFamily:"GoldmanRegular", paddingLeft:20, paddingRight:20, paddingTop:15, paddingBottom:15, borderRadius:15, color:"white", fontWeight:"bold"}} onClick={inputPage}>GET STARTED</button>
+                <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between",alignItems:"center",  width:"40%"}}>
+                    <div >
+                        <button style={{backgroundColor:"#00A19C", border:"none", fontFamily:"GoldmanRegular", paddingTop:15, paddingBottom:15, borderRadius:10, color:"white", fontWeight:"bold", width:"130px"}} onClick={loginPage}>LOG IN</button>
+                    </div>
+                    <div >
+                    <button style={{backgroundColor:"#00A19C", border:"none", fontFamily:"GoldmanRegular", paddingTop:15, paddingBottom:15, borderRadius:10, color:"white", fontWeight:"bold", width:"130px"}} onClick={signupPage}>SIGN UP</button>
+                    </div>
                 </div>
+                
             </div>
 
             <div style={{flex:1, display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>

@@ -18,8 +18,9 @@ const SecondForm=({handleSubmit})=>{
     const [typeState,setTypeState]=useState(false)
     const [infoState, setInfoState]=useState({})
     const [submitComposite, setSubmitComposite]=useState("")
-    const [corrosionType, setCorrosionType] = useState('Depth of corrosion');
     const [isOpen, setIsOpen] = useState(false);
+    const [corrosionType, setCorrosionType] = useState('Depth of corrosion');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
     
     const informationPage=()=>{
         navigate("/details")
@@ -28,7 +29,7 @@ const SecondForm=({handleSubmit})=>{
     
     const handleTypeChange = (type) => {
         setCorrosionType(type);
-        setIsOpen(false); // Close dropdown after selection (optional)
+        setDropdownOpen(false);
       };
 
     const infoPass={
@@ -114,16 +115,16 @@ const SecondForm=({handleSubmit})=>{
         setHandleMouse(false)
     }
 
-   
-
     useEffect(() => {
         // Update infoState based on selectedComposite
         if (selectedComposite && infoPass[selectedComposite]) {
             setInfoState(infoPass[selectedComposite]);
         }
     }, [selectedComposite]);
+
+    
     return(
-        <form  onSubmit={(event)=>handleSubmit(event,selectedTensile,selectedComposite)}>
+        <form  onSubmit={(event)=>handleSubmit(event,selectedTensile,selectedComposite, corrosionType)}>
         <div style={{display:"flex", flexDirection:"column", justifyContent:"space-around",height:"87vh"}} >
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
 
@@ -131,22 +132,22 @@ const SecondForm=({handleSubmit})=>{
                     <h2 className="block mb-2 text-sm font-bold text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>DEFECT CHARACTERISTIC</h2>
                 </div>
 
-    <div style={{display:"flex", flexDirection:"column",  alignItems:"self-end", width:"100%", gap:60}}>
+    <div style={{display:"flex", flexDirection:"column",  alignItems:"center", width:"100%", gap:60}}>
 
         <div style={{display:"flex", flexDirection:"row"}}>
-            <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row",    justifyContent:"center", alignItems:"center"}}>
+            <div className="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row",    justifyContent:"center", alignItems:"center"}}>
                 <input placeholder="mm"
-                        class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="length" />
+                        className="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700  outline-none transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500  disabled:border-0  placeholder:opacity-0  text-white "  required type="text" id="length" autocomplete="off"/>
                 <label
-                class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500" >
+                className="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500" >
                     Length
                 </label>
             </div>
-            <div class="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
+            <div className="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
                     <input placeholder="mm"
-                        class="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="width"/>
+                        className="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="width" autocomplete="off"/>
                     <label
-                        class="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                        className="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                         Width
                     </label>
                     </div>
@@ -167,53 +168,41 @@ const SecondForm=({handleSubmit})=>{
     <div className="flex items-center p-1 space-x-2 bg-gray-700 rounded-lg">
       <div className="flex items-center rounded-lg">
         <input
-          type="number"
+          type="text"
           placeholder="Enter amount"
-          className="w-40 p-2 text-sm text-white bg-transparent rounded-l-lg focus:outline-none"
-          style={{ color: 'white' }}
+          className="w-40 p-2 text-sm text-white bg-transparent rounded-l-lg focus:outline-none after:bg-transparent"
+          style={{ color: 'white', backgroundColor:"transparent" }}
+          id={corrosionType === 'Depth of corrosion' ? 'depth' : 'thickPercentage'}
+          autocomplete="off"
         />
         <div className="p-2 text-sm text-white rounded-r-lg" style={{ width: '30px' }}>
           {corrosionType === 'Depth of corrosion' ? 'mm' : '%'}
         </div>
       </div>
       <div className="relative inline-block text-left">
-        <div>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-sm text-white bg-transparent bg-gray-700 rounded-lg outline-none"
-            style={{ color: 'white', width: '200px' }}
-          >
-            {corrosionType}
-            <svg
-              className="w-3 h-3 ml-2"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+        <button
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+          className="p-2 text-sm text-white bg-transparent bg-gray-700 rounded-lg outline-none"
+          style={{ width: '200px' }}
+        >
+          {corrosionType}
+        </button>
+        {dropdownOpen && (
+          <div className="absolute mt-2 bg-gray-700 rounded-lg shadow-lg">
+            <div
+              onClick={() => handleTypeChange('Depth of corrosion')}
+              className="px-4 py-2 text-sm text-white cursor-pointer hover:bg-gray-600"
             >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M10.2929 14.2929C10.6834 13.9024 11.3166 13.9024 11.7071 14.2929C12.0976 14.6834 12.0976 15.3166 11.7071 15.7071L7.70711 19.7071C7.31658 20.0976 6.68342 20.0976 6.29289 19.7071L2.29289 15.7071C1.90237 15.3166 1.90237 14.6834 2.29289 14.2929C2.68342 13.9024 3.31658 13.9024 3.70711 14.2929L7 17.5858L10.2929 14.2929ZM10 6.41421L13.2929 9.70711C13.6834 10.0976 13.6834 10.7308 13.2929 11.1213C12.9024 11.5118 12.2692 11.5118 11.8787 11.1213L10 9.24264L8.12132 11.1213C7.7308 11.5118 7.09763 11.5118 6.70711 11.1213C6.31658 10.7308 6.31658 10.0976 6.70711 9.70711L10 6.41421Z"
-              />
-            </svg>
-          </button>
-          {isOpen && (
-            <ul className="absolute z-10 mt-1 bg-white rounded-lg shadow-lg w-200">
-              <li
-                className="px-4 py-2 text-sm text-gray-800 cursor-pointer hover:bg-gray-200"
-                onClick={() => handleTypeChange('Depth of corrosion')}
-              >
-                Depth of corrosion
-              </li>
-              <li
-                className="px-4 py-2 text-sm text-gray-800 cursor-pointer hover:bg-gray-200"
-                onClick={() => handleTypeChange('Percentage of corrosion')}
-              >
-                Percentage of corrosion
-              </li>
-            </ul>
-          )}
-        </div>
+              Depth of corrosion
+            </div>
+            <div
+              onClick={() => handleTypeChange('Percentage of corrosion')}
+              className="px-4 py-2 text-sm text-white cursor-pointer hover:bg-gray-600"
+            >
+              Percentage of corrosion
+            </div>
+          </div>
+        )}
       </div>
     </div>
         {/* <div style={{display:"flex", flexDirection:"column"}}>
@@ -259,8 +248,8 @@ const SecondForm=({handleSubmit})=>{
 
                     <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center", width:"50%"}}>
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:5}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Diameter</label>
-                            <input type="text" id="diameter" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="diameter"/>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  style={{fontFamily:"PoppinsRegular"}}>Diameter</label>
+                            <input type="text" id="diameter" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="diameter" autocomplete="off"/>
                         </div>
 
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
@@ -277,10 +266,21 @@ const SecondForm=({handleSubmit})=>{
                     </div>
 
                     <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center", width:"50%"}}>
-                        <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:5}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Thickness</label>
-                            <input type="text" step="any" id="thickness" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="thickness"/>
+                    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginBottom: 5 }}>
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{ fontFamily: "PoppinsRegular" }}>Thickness</label>
+                        <input
+                            type="text"
+                            step="any"
+                            id="thickness"
+                            className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-700"
+                            placeholder="mm"
+                            required
+                            style={{ width: 100 }}
+                            name="thickness"
+                            autocomplete="off"
+                        />
                         </div>
+
 
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} >
                             <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Composite</label>

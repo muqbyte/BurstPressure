@@ -79,16 +79,26 @@ const InputChart=()=>{
     const [sendData, setSendData] = useState(false);
     const [combinePredic, setCombinePredict]=useState([])
 
-    const handleSubmit = async (e, selectedTensile, selectedComposite) => {
+    const handleSubmit = async (e, selectedTensile, selectedComposite, corrosionType) => {
       e.preventDefault();
-  
+        
+        let depth;
+        let thickPercentage;
       // Get all values from the form
       const length = e.target.length.value;
       const width = e.target.width.value;
       const diameter = e.target.diameter.value;
-      const depth = e.target.depth.value;
+    //   const corrosion = e.target.depth.value; //option
       const thickness = e.target.thickness.value;
-      const thickPercentage = e.target.thickPercentage.value;
+    //   const thickPercentage = e.target.thickPercentage.value; //option
+
+      if (corrosionType === 'Depth of corrosion') {
+      depth=e.target.depth.value;
+      thickPercentage=0;
+    } else if (corrosionType === 'Percentage of corrosion') {
+      thickPercentage=e.target.thickPercentage.value;
+      depth=0;
+    }
   
       // if(!length && !width && !diameter && !thickness && (!depth || !thickPercentage)){
       //   return alert('Please fill all the details before submit')
@@ -97,13 +107,14 @@ const InputChart=()=>{
           length: length,
           width: width,
           diameter: diameter,
-          depth: depth,
+        //   corrosion: corrosion,
+        depth:depth,
           thickness: thickness,
           thickPercentage: thickPercentage,
           tensile: selectedTensile,
           composite: selectedComposite,
       };
-      // console.log(reqBody);
+      console.log(reqBody);
   
       try {
           // First API call

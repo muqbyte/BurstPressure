@@ -64,7 +64,7 @@ const PdfPredict = ({ chartImage, combinedData }) => {
           <View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell}>Category</Text>
-              <Text style={styles.tableCell}>Burst Pressure</Text>
+              <Text style={styles.tableCell}>Burst Pressure (MPa)</Text>
             </View>
             {combinedData && combinedData.map((row, index) => (
               <View style={styles.tableRow} key={index}>
