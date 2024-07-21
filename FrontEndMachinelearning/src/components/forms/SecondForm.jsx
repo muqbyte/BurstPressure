@@ -137,7 +137,7 @@ const SecondForm=({handleSubmit})=>{
         <div style={{display:"flex", flexDirection:"row"}}>
             <div className="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row",    justifyContent:"center", alignItems:"center"}}>
                 <input placeholder="mm"
-                        className="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700  outline-none transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500  disabled:border-0  placeholder:opacity-0  text-white "  required type="text" id="length" autocomplete="off"/>
+                        className="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700  outline-none transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500  disabled:border-0  placeholder:opacity-0  text-white "  required type="text" id="length" autoComplete="off"/>
                 <label
                 className="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500" >
                     Length
@@ -145,7 +145,7 @@ const SecondForm=({handleSubmit})=>{
             </div>
             <div className="relative h-11 w-full min-w-[200px]" style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
                     <input placeholder="mm"
-                        className="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="width" autocomplete="off"/>
+                        className="peer h-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100 text-white" required type="text" id="width" autoComplete="off"/>
                     <label
                         className="after:content[''] pointer-events-none absolute left-5  -top-1.5 flex h-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:scale-x-0 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                         Width
@@ -173,7 +173,7 @@ const SecondForm=({handleSubmit})=>{
           className="w-40 p-2 text-sm text-white bg-transparent rounded-l-lg focus:outline-none after:bg-transparent"
           style={{ color: 'white', backgroundColor:"transparent" }}
           id={corrosionType === 'Depth of corrosion' ? 'depth' : 'thickPercentage'}
-          autocomplete="off"
+          autoComplete="off"
         />
         <div className="p-2 text-sm text-white rounded-r-lg" style={{ width: '30px' }}>
           {corrosionType === 'Depth of corrosion' ? 'mm' : '%'}
@@ -249,7 +249,7 @@ const SecondForm=({handleSubmit})=>{
                     <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center", width:"50%"}}>
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:5}}>
                             <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  style={{fontFamily:"PoppinsRegular"}}>Diameter</label>
-                            <input type="text" id="diameter" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="diameter" autocomplete="off"/>
+                            <input type="text" id="diameter" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="diameter" autoComplete="off"/>
                         </div>
 
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
@@ -277,7 +277,7 @@ const SecondForm=({handleSubmit})=>{
                             required
                             style={{ width: 100 }}
                             name="thickness"
-                            autocomplete="off"
+                            autoComplete="off"
                         />
                         </div>
 

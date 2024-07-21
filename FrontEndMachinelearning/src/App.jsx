@@ -1,26 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import AppRoutes from './components/routes/index'
 import './App.css'
-import PdfFile from './components/pdf/PdfFile'
-import { PDFDownloadLink } from '@react-pdf/renderer'
-import PdfSubmit from './components/pdf/PdfSubmit'
-import MyChart from './components/charts/BurstImage'
-import DownloadPDF from './components/pdf/PdfTable'
+
+
+import AuthProvider from 'react-auth-kit';
+
+import createStore from 'react-auth-kit/createStore';
+
+const store = createStore({
+  authName:'_auth',
+  authType:'cookie',
+  cookieDomain: window.location.hostname,
+  cookieSecure: window.location.protocol === 'https:',
+});
 
 
 function App() {
  
 
   return (
-    <div>
+    <AuthProvider store={store}>
     <AppRoutes/>
-    {/* <PdfSubmit/> */}
-    {/* <MyChart/> */}
-    {/* <DownloadPDF/> */}
-    {/* <Table/> */}
-    </div>
+
+    </AuthProvider>
   )
 }
 

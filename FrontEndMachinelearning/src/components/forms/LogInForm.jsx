@@ -1,7 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+
+import axios from "axios";
+
+import useSignIn from 'react-auth-kit/hooks/useSignIn';
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
+
 const LoginForm=()=>{
+
+    const auth = useAuthUser()
+    const signIn = useSignIn();
+
 
     const navigate = useNavigate();
     const handleSubmit=async(e)=>{
@@ -14,9 +24,32 @@ const LoginForm=()=>{
             email,
             password,
         };
-        console.log(reqBody);
+        try {
+            const loginUser = await axios.post("http://localhost:5500/api/auth/login", reqBody);
 
-        navigate("/protectedHome")
+            if(signIn({
+                auth: {
+                    token: loginUser.data.token,
+                    type: 'Bearer'
+                },
+                userState: loginUser.data.authUserState
+            })){
+                if(loginUser.data.authUserState.role == 'admin'){
+                    navigate('/admin'); // Reroute to the input after successful login
+                }else{
+                    navigate('/protectedHome'); // Reroute to the input after successful login
+                }
+                // Redirect or do-something
+            }else {
+                //Throw error
+            }
+
+            // alert(registerUser.data[0].msg);
+
+        } catch (error) {
+            console.error(error);
+          
+        }
     }
     return(
         <section style={{backgroundColor:"#193948", width:"30vw",borderColor:"#018076",borderRadius:20}}>
@@ -27,12 +60,12 @@ const LoginForm=()=>{
 
                 <div className="flex flex-col gap-2">
                     <label className="text-white ">Your email</label>
-                    <input className="text-white border border-gray-600 bg-slate-700  p-2.5 rounded-lg" placeholder="name@company.com" id="email" autocomplete="off"></input>
+                    <input className="text-white border border-gray-600 bg-slate-700  p-2.5 rounded-lg" placeholder="name@company.com" id="email" autoComplete="off"></input>
                 </div>
 
                 <div className="flex flex-col gap-2">
                     <label className="text-white">Password</label>
-                    <input className="text-white border border-gray-600 bg-slate-700  p-2.5 rounded-lg" placeholder="******" id="password" autocomplete="off"></input>
+                    <input className="text-white border border-gray-600 bg-slate-700  p-2.5 rounded-lg" placeholder="******" id="password" autoComplete="off"></input>
                 </div>
 
                 <div className="flex flex-col mt-4">
