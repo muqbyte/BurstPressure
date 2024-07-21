@@ -13,6 +13,10 @@ import axios from "axios";
 import Table from "../Table/CustomTable";
 
 const PastData=()=>{
+    const navigate = useNavigate();
+    const InputChartPage=()=>{
+        navigate("/protectedHome")
+    }   
     const columns = ['SID', 'tensile', 'depth','width', 'length', 'burst','type', 'timestamp' ];
     const columnsPrediction = ['SID','category', 'type', 'tensile', 'depth','length','width',  'wrap','burst','timestamp' ];
     const [listOfUser, setListOfUser]=useState([{
@@ -42,7 +46,8 @@ const PastData=()=>{
 
         try {
 
-            const getAllData = await axios.get("http://localhost:5500/api/user/data");
+            const getAllData = await axios.get("https://backdoor.eagleattech.com/api/user/data");
+            // const getAllData = await axios.get("http://localhost:5500/api/user/data");
            {
                setListOfUser(getAllData.data)
 
@@ -57,7 +62,8 @@ const PastData=()=>{
 
         try {
 
-            const getAllData = await axios.get("http://localhost:5500/api/user/data/prediction");
+            const getAllData = await axios.get("https://backdoor.eagleattech.com/api/user/data/prediction");
+            // const getAllData = await axios.get("http://localhost:5500/api/user/data/prediction");
            {
             setListOfDataPrediction(getAllData.data)
 
@@ -88,10 +94,14 @@ const PastData=()=>{
                         <p style={{textAlign:'center', color:'white', fontSize:'1.2rem', paddingBottom:20}}>Unrepaired Theory</p>
                      <Table columns={columns} data={listOfUser}/>
                      </div>
-                     <div style={{paddingBottom:60}}>
+                     <div style={{paddingBottom:10}}>
                      <p style={{textAlign:'center', color:'white', fontSize:'1.2rem', paddingBottom:20}}>Prediction</p>
                      <Table columns={columnsPrediction} data={listOfDataPrediction}/>
 
+                     </div>
+
+                     <div>
+                     <button className="px-6 py-1 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" style={{marginTop:"50px"}} onClick={InputChartPage}>Return to Home Page</button>
                      </div>
                  
                 </div>

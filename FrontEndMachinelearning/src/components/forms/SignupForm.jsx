@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
+import axios from "axios";
+
+import { useNavigate } from "react-router-dom";
+
+
 const SignupForm = () => {
+    const navigate = useNavigate();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [userType, setUserType] = useState("Select role");
 
@@ -23,19 +29,36 @@ const SignupForm = () => {
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
         const role=userType
-
-        if(password===confirmPassword){
+        if(password!==confirmPassword){
+            
+           return alert("Password does not match")
+        }
+        // if(password===confirmPassword){
             const reqBody = {
                 email,
                 username,
                 password,
                 role:role
             };
-            console.log(reqBody);
-        }
-        else{
-            alert("Incorrect password");
-        }
+
+            try {
+
+                const registerUser = await axios.post("https://backdoor.eagleattech.com/api/user/register", reqBody);
+                alert(registerUser.data[0].msg);
+                if(registerUser.data[0].msg === 'Success. You can log in now'){
+                    navigate('/login');
+                }
+            } catch (error) {
+                console.error(error);
+
+            }
+        
+        
+            // console.log(reqBody);
+        // }
+        // else{
+        //     alert("Incorrect password");
+        // }
         
     }
 
@@ -46,27 +69,29 @@ const SignupForm = () => {
                     <h2 className="text-lg font-bold text-white">Create an account</h2>
                 </div>
 
+               
+                
+                <div className="flex flex-col gap-2">
+                    <label className="text-white">Username</label>
+                    <input className="text-white border border-gray-600 bg-slate-700 p-2.5 rounded-lg" placeholder="Username" id="username" autoComplete="off"></input>
+                </div>
+
                 <div className="flex flex-col gap-2">
                     <label className="text-white">Your email</label>
                     <input className="text-white border border-gray-600 bg-slate-700 p-2.5 rounded-lg" placeholder="name@company.com" id="email" autoComplete="new-password"></input>
                 </div>
-                
-                <div className="flex flex-col gap-2">
-                    <label className="text-white">Username</label>
-                    <input className="text-white border border-gray-600 bg-slate-700 p-2.5 rounded-lg" placeholder="name@company.com" id="username" autocomplete="off"></input>
-                </div>
 
                 <div className="flex flex-col gap-2">
                     <label className="text-white">Password</label>
-                    <input className="text-white border border-gray-600 bg-slate-700 p-2.5 rounded-lg" placeholder="******" id="password" autocomplete="off"></input>
+                    <input className="text-white border border-gray-600 bg-slate-700 p-2.5 rounded-lg" placeholder="******" id="password" autoComplete="off"></input>
                 </div>
 
                 <div className="flex flex-col gap-2">
                     <label className="text-white">Confirm Password</label>
-                    <input className="text-white border border-gray-600 bg-slate-700 p-2.5 rounded-lg" placeholder="******" id="confirmPassword" autocomplete="off"></input>
+                    <input className="text-white border border-gray-600 bg-slate-700 p-2.5 rounded-lg" placeholder="******" id="confirmPassword" autoComplete="off"></input>
                 </div>
 
-                <div className="relative flex flex-col gap-2">
+                {/* <div className="relative flex flex-col gap-2">
                     <label className="text-white">Select Role</label>
                     <button
                         onClick={handleDropdownClick}
@@ -97,7 +122,7 @@ const SignupForm = () => {
                             </div>
                         </div>
                     )}
-                </div>
+                </div> */}
 
                 <div className="flex flex-col mt-4">
                     <button className="w-full p-2 text-white rounded-xl bg-sky-600">Create an account</button>

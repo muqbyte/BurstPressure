@@ -31,7 +31,7 @@ const PastData=()=>{
 
         try {
 
-            const getAllUsers = await axios.get("http://localhost:5500/api/admin/users");
+            const getAllUsers = await axios.get("https://backdoor.eagleattech.com/api/admin/users");
            {
                setListOfUser(getAllUsers.data)
 
@@ -49,7 +49,7 @@ const PastData=()=>{
             role,
         };
         try {
-            const updateUser = await axios.put("http://localhost:5500/api/admin/user", reqBody);
+            const updateUser = await axios.put("https://backdoor.eagleattech.com/api/admin/user", reqBody);
             getUsers()
 
         } catch (error) {
@@ -69,7 +69,7 @@ const PastData=()=>{
         };
         console.log(email)
         try {
-            const deleteUser = await axios.delete("http://localhost:5500/api/admin/user", {data:reqBody});
+            const deleteUser = await axios.delete("https://backdoor.eagleattech.com/api/admin/user", {data:reqBody});
             console.log(deleteUser)
             getUsers()
 
