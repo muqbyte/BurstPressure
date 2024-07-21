@@ -110,7 +110,7 @@ const PredictionChart = (props) => {
       </div>
       
 
-      <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between",marginTop:20, width:"50%"}}>
+      <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between",marginTop:10, width:"50%"}}>
         <div >
         {chartImage && (
           <PDFDownloadLink document={<PdfPredict chartImage={chartImage} combinedData={combinedPredict}/>}  fileName="Chart.pdf">

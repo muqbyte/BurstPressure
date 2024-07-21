@@ -88,7 +88,19 @@ import CalculatedChart from "./CalculatedChart";
 import PredictionChart from "./PredictionChart";
 
 const BurstChart = (props) => {
-  const [selectedChart, setSelectedChart] = useState("calculated");
+  const [selectedChart, setSelectedChart] = useState("Calculated Chart");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+    // const [chartType, setChartType] = useState("Calculated");
+
+    const handleOptionClick = (type) => {
+        setSelectedChart(type);
+        setDropdownOpen(false);
+    };
+
+    const handleDropdownClick = (event) => {
+        event.preventDefault(); // Prevent form submission
+        setDropdownOpen(!dropdownOpen);
+    };
 
   const handleChartChange = (event) => {
     setSelectedChart(event.target.value);
@@ -99,8 +111,8 @@ const BurstChart = (props) => {
   const predictData = props.predictData;
 
   return (
-    <div style={{paddingTop:30}}>
-      <select
+    <div style={{paddingTop:10}}>
+      {/* <select
         value={selectedChart}
         onChange={handleChartChange}
         style={{
@@ -116,15 +128,48 @@ const BurstChart = (props) => {
       >
         <option value="calculated" style={{color:"white"}}>Calculated Chart</option>
         <option value="prediction">Prediction Chart</option>
-      </select>
+      </select> */}
 
-      {selectedChart === "calculated" && (
+      <div className="relative flex flex-col gap-2" style={{marginBottom:25}}>
+                    <button
+                        onClick={handleDropdownClick}
+                        className="p-2 text-sm text-white bg-gray-700 rounded-lg"
+                        style={{ width: '20%' }}
+                    >
+                        {selectedChart}
+                    </button>
+                    {dropdownOpen && (
+                        <div className="absolute bg-gray-700 rounded-lg shadow-lg" style={{width:"20%"}}>
+                            <div
+                                onClick={() => handleOptionClick("Calculated Chart")}
+                                className="px-4 py-2 text-sm text-white cursor-pointer hover:bg-gray-600"
+                            >
+                               Calculated Chart
+                            </div>
+                            <div
+                                onClick={() => handleOptionClick("Prediction Chart")}
+                                className="px-4 py-2 text-sm text-white cursor-pointer hover:bg-gray-600"
+                            >
+                                Prediction Chart
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+
+
+
+
+
+
+
+      {selectedChart === "Calculated Chart" && (
         <div>
           <CalculatedChart data={data} />
         </div>
       )}
 
-      {selectedChart === "prediction" && (
+      {selectedChart === "Prediction Chart" && (
         <div>
           <PredictionChart predictData={predictData} />
         </div>

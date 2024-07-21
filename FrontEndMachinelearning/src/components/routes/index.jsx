@@ -35,7 +35,7 @@ import HomeAuth from "../pages/HomeAuth";
                 <Route  path="/input" element={<InputChart/>} />
 
 
-                  {/* This is the details page */}
+                {/* This is the details page */}
                 <Route  path="/details" element={<DescriptionInput/>} /> 
 
                 {/* This page is for the past data. The user can only see their data. But the admin can see all user data   */}

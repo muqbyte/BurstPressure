@@ -73,7 +73,7 @@ const CalculatedChart = (props) => {
           <XAxis dataKey="x" tick={{ fill: '#6ad6d6' }} stroke="orange" />
           <YAxis dataKey="y" tick={{ fill: '#6ad6d6' }} stroke="orange"  label={{ value: 'Burst Pressure', angle: -90, position: 'insideLeft', textAnchor: 'middle', fill: '#6ad6d6',style: { fontSize: 18 }}}/>
           {/* <Legend /> */}
-          {combinedData.length > 0 && <Scatter name="asme" data={combinedData} fill="Red" />}
+          {combinedData.length > 0 && <Scatter name="asme" data={combinedData} fill="Orange" />}
           <Tooltip cursor={{ stroke: 'black', strokeDasharray: "3 3" }} />
         </ScatterChart>
       </ResponsiveContainer>
@@ -97,6 +97,7 @@ const CalculatedChart = (props) => {
         </tbody>
       </table>}
       </div>
+      
          
       <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between",marginTop:20, width:"50%"}}>
         <div>
