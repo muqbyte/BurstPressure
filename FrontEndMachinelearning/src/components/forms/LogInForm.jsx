@@ -7,6 +7,9 @@ import axios from "axios";
 import useSignIn from 'react-auth-kit/hooks/useSignIn';
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
 
+import { API_ENDPOINT_ML } from '../../config';
+import { API_ENDPOINT_BACK } from '../../config';
+
 const LoginForm=()=>{
 
     const auth = useAuthUser()
@@ -25,7 +28,7 @@ const LoginForm=()=>{
             password,
         };
         try {
-            const loginUser = await axios.post("https://backdoor.eagleattech.com/api/auth/login", reqBody);
+            const loginUser = await axios.post(`${API_ENDPOINT_BACK}/api/auth/login`, reqBody);
             // const loginUser = await axios.post("http://localhost:5500/api/auth/login", reqBody);
 
             if(signIn({

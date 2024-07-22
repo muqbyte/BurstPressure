@@ -10,6 +10,9 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
+import { API_ENDPOINT_ML } from '../../config';
+import { API_ENDPOINT_BACK } from '../../config';
+
 const PastData=()=>{
 
     const [listOfUser, setListOfUser]=useState([{
@@ -31,7 +34,7 @@ const PastData=()=>{
 
         try {
 
-            const getAllUsers = await axios.get("https://backdoor.eagleattech.com/api/admin/users");
+            const getAllUsers = await axios.get(`${API_ENDPOINT_BACK}/api/admin/users`);
            {
                setListOfUser(getAllUsers.data)
 
@@ -49,7 +52,7 @@ const PastData=()=>{
             role,
         };
         try {
-            const updateUser = await axios.put("https://backdoor.eagleattech.com/api/admin/user", reqBody);
+            const updateUser = await axios.put(`${API_ENDPOINT_BACK}/api/admin/user`, reqBody);
             getUsers()
 
         } catch (error) {
@@ -69,7 +72,7 @@ const PastData=()=>{
         };
         console.log(email)
         try {
-            const deleteUser = await axios.delete("https://backdoor.eagleattech.com/api/admin/user", {data:reqBody});
+            const deleteUser = await axios.delete(`${API_ENDPOINT_BACK}/api/admin/user`, {data:reqBody});
             console.log(deleteUser)
             getUsers()
 

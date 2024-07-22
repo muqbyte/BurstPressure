@@ -10,6 +10,10 @@ import SecondChart from "../charts/PredictionChart";
 import CalculatedChart from "../charts/CalculatedChart";
 import SecondForm from "../forms/SecondForm";
 
+
+import { API_ENDPOINT_ML } from '../../config';
+import { API_ENDPOINT_BACK } from '../../config';
+
 // const handleSubmit = async(e, selectedTensile, selectedComposite) => {
 
 //   e.preventDefault();
@@ -119,12 +123,12 @@ const InputChart=()=>{
       try {
           // First API call
           // const theoryRes = await axios.post("https://pipeline.eagleattech.com/api/theory/calculate", reqBody);
-          const theoryRes = await axios.post("https://backdoor.eagleattech.com/api/theory/calculate", reqBody);
+          const theoryRes = await axios.post(`${API_ENDPOINT_BACK}/api/theory/calculate`, reqBody);
           // console.log(theoryRes.data);
           setSendData(theoryRes.data);
   
           // Second API call
-          const predictionRes = await axios.post("https://ml.eagleattech.com/predict/unrepaired", reqBody);
+          const predictionRes = await axios.post(`${API_ENDPOINT_ML}/predict/unrepaired`, reqBody);
           // console.log(predictionRes.data);
   
           const unrepairArray = predictionRes.data;

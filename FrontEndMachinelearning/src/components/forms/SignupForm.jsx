@@ -4,6 +4,8 @@ import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
 
+import { API_ENDPOINT_ML } from '../../config';
+import { API_ENDPOINT_BACK } from '../../config';
 
 const SignupForm = () => {
     const navigate = useNavigate();
@@ -43,7 +45,7 @@ const SignupForm = () => {
 
             try {
 
-                const registerUser = await axios.post("https://backdoor.eagleattech.com/api/user/register", reqBody);
+                const registerUser = await axios.post(`${API_ENDPOINT_BACK}/api/user/register`, reqBody);
                 alert(registerUser.data[0].msg);
                 if(registerUser.data[0].msg === 'Success. You can log in now'){
                     navigate('/login');

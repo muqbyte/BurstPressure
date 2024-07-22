@@ -12,6 +12,9 @@ import axios from "axios";
 
 import Table from "../Table/CustomTable";
 
+import { API_ENDPOINT_ML } from '../../config';
+import { API_ENDPOINT_BACK } from '../../config';
+
 const PastData=()=>{
     const navigate = useNavigate();
     const InputChartPage=()=>{
@@ -46,7 +49,7 @@ const PastData=()=>{
 
         try {
 
-            const getAllData = await axios.get("https://backdoor.eagleattech.com/api/user/data");
+            const getAllData = await axios.get(`${API_ENDPOINT_BACK}/api/user/data`);
             // const getAllData = await axios.get("http://localhost:5500/api/user/data");
            {
                setListOfUser(getAllData.data)
@@ -62,7 +65,7 @@ const PastData=()=>{
 
         try {
 
-            const getAllData = await axios.get("https://backdoor.eagleattech.com/api/user/data/prediction");
+            const getAllData = await axios.get(`${API_ENDPOINT_BACK}/api/user/data/prediction`);
             // const getAllData = await axios.get("http://localhost:5500/api/user/data/prediction");
            {
             setListOfDataPrediction(getAllData.data)
