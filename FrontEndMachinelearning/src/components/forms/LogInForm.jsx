@@ -30,7 +30,7 @@ const LoginForm=()=>{
         try {
             const loginUser = await axios.post(`${API_ENDPOINT_BACK}/api/auth/login`, reqBody);
             // const loginUser = await axios.post("http://localhost:5500/api/auth/login", reqBody);
-
+            console.log(loginUser)
             if(signIn({
                 auth: {
                     token: loginUser.data.token,
@@ -51,6 +51,7 @@ const LoginForm=()=>{
             // alert(registerUser.data[0].msg);
 
         } catch (error) {
+          alert(error.response.data.msg)
             console.error(error);
           
         }
