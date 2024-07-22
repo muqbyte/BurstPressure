@@ -12,6 +12,10 @@ const SignupForm = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [userType, setUserType] = useState("Select role");
 
+    const signinPage=()=>{
+        navigate('/login')
+    }
+
     const handleOptionClick = (type) => {
         setUserType(type);
         setDropdownOpen(false);
@@ -128,6 +132,17 @@ const SignupForm = () => {
 
                 <div className="flex flex-col mt-4">
                     <button className="w-full p-2 text-white rounded-xl bg-sky-600">Create an account</button>
+                </div>
+
+                <div className="flex flex-row gap-2" >
+                    <p className="font-semibold text-white text-m">
+                    Already have an account? </p>
+                    <a
+           onClick={signinPage}
+            className="font-semibold text-white cursor-pointer text-m hover:text-gray-300"
+        >
+            SIGN IN
+        </a>
                 </div>
             </form>
         </section>

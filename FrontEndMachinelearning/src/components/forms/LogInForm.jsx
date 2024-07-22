@@ -17,6 +17,9 @@ const LoginForm=()=>{
 
 
     const navigate = useNavigate();
+    const signupPage=()=>{
+        navigate('/signup')
+    }
     const handleSubmit=async(e)=>{
         
         e.preventDefault();
@@ -27,6 +30,7 @@ const LoginForm=()=>{
             email,
             password,
         };
+        console.log(reqBody)
         try {
             const loginUser = await axios.post(`${API_ENDPOINT_BACK}/api/auth/login`, reqBody);
             // const loginUser = await axios.post("http://localhost:5500/api/auth/login", reqBody);
@@ -47,13 +51,12 @@ const LoginForm=()=>{
             }else {
                 //Throw error
             }
-
+            
             // alert(registerUser.data[0].msg);
 
         } catch (error) {
           alert(error.response.data.msg)
             console.error(error);
-          
         }
     }
     return(
@@ -75,6 +78,17 @@ const LoginForm=()=>{
 
                 <div className="flex flex-col mt-4">
                     <button className="w-full p-2 text-white rounded-xl bg-sky-600">Sign in</button>
+                </div>
+
+                <div className="flex flex-row gap-2" >
+                    <p className="font-semibold text-white text-m">
+                    Don't have an account? </p>
+                    <a
+            onClick={signupPage}
+            className="font-semibold text-white cursor-pointer text-m hover:text-gray-300"
+        >
+            REGISTER NOW
+        </a>
                 </div>
                 
             </form>
