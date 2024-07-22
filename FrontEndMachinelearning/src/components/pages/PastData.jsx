@@ -20,19 +20,31 @@ const PastData=()=>{
     const InputChartPage=()=>{
         navigate("/protectedHome")
     }   
-    const columns = ['SID', 'tensile', 'depth','width', 'length', 'burst','type', 'timestamp' ];
-    const columnsPrediction = ['SID','category', 'type', 'tensile', 'depth','length','width',  'wrap','burst','timestamp' ];
+    // NEW TABLE
+
+
+    const columns = ['UID','SID', 'tensile', 'depth','diameter','thickness','width', 'length','composite', 'burst','type' ];
+    const columnsPrediction = ['UID','SID','category', 'type', 'tensile', 'depth','length','width','diameter','thickness','composite','burst' ];
+    // const columns = ['SID', 'tensile', 'depth','width', 'length', 'burst','type', 'timestamp' ];
+    // const columnsPrediction = ['SID','category', 'type', 'tensile', 'depth','length','width',  'wrap','burst','timestamp' ];
+    
+    // NEW TABLE
     const [listOfUser, setListOfUser]=useState([{
+        UID:"",
         SID:"",
         tensile:"",
         depth:"",
+        diameter:"",
+        thickness:"",
         width:"",
         length:"",
+        composite:"",
         burst:"",
-        type:"",
-        timestamp:"",
+        type:""
     }])
+
     const [listOfDataPrediction, setListOfDataPrediction]=useState([{
+        UID:"",
         SID:"",
         category:"",
         type:"",
@@ -40,10 +52,34 @@ const PastData=()=>{
         depth:"",
         length:"",
         width:"",
-        wrap:"",
-        burst:"",
-        timestamp:"",
+        diameter:"",
+        thickness:"",
+        composite:"",
+        burst:""
+
     }])
+    // const [listOfUser, setListOfUser]=useState([{
+    //     SID:"",
+    //     tensile:"",
+    //     depth:"",
+    //     width:"",
+    //     length:"",
+    //     burst:"",
+    //     type:"",
+    //     timestamp:"",
+    // }])
+    // const [listOfDataPrediction, setListOfDataPrediction]=useState([{
+    //     SID:"",
+    //     category:"",
+    //     type:"",
+    //     tensile:"",
+    //     depth:"",
+    //     length:"",
+    //     width:"",
+    //     wrap:"",
+    //     burst:"",
+    //     timestamp:"",
+    // }])
 
     const getData = async () => {
 
@@ -52,7 +88,18 @@ const PastData=()=>{
             const getAllData = await axios.get(`${API_ENDPOINT_BACK}/api/user/data`);
             // const getAllData = await axios.get("http://localhost:5500/api/user/data");
            {
-               setListOfUser(getAllData.data)
+
+            const keysToRemove = ['timestamp'];
+
+            const updatedArray = getAllData.data.map(obj => {
+              keysToRemove.forEach(key => {
+                delete obj[key];
+              });
+              return obj;
+            });
+
+               setListOfUser(updatedArray)
+              //  setListOfUser(getAllData.data)
 
             } 
 
@@ -68,7 +115,16 @@ const PastData=()=>{
             const getAllData = await axios.get(`${API_ENDPOINT_BACK}/api/user/data/prediction`);
             // const getAllData = await axios.get("http://localhost:5500/api/user/data/prediction");
            {
-            setListOfDataPrediction(getAllData.data)
+            const keysToRemove = ['timestamp'];
+
+            const updatedArray = getAllData.data.map(obj => {
+              keysToRemove.forEach(key => {
+                delete obj[key];
+              });
+              return obj;
+            });
+
+            setListOfDataPrediction(updatedArray)
 
             } 
 
@@ -94,7 +150,7 @@ const PastData=()=>{
                         {/* <h1 style={{color:"white"}}>Calculated unrepaired</h1> */}
 
                         <div style={{paddingBottom:60}}>
-                        <p style={{textAlign:'center', color:'white', fontSize:'1.2rem', paddingBottom:20}}>Unrepaired Theory</p>
+                        <p style={{textAlign:'center', color:'white', fontSize:'1.2rem', paddingBottom:20}}>Calculated Theory</p>
                      <Table columns={columns} data={listOfUser}/>
                      </div>
                      <div style={{paddingBottom:10}}>

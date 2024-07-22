@@ -14,6 +14,8 @@ import SecondForm from "../forms/SecondForm";
 import { API_ENDPOINT_ML } from '../../config';
 import { API_ENDPOINT_BACK } from '../../config';
 
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
+
 // const handleSubmit = async(e, selectedTensile, selectedComposite) => {
 
 //   e.preventDefault();
@@ -80,12 +82,21 @@ import { API_ENDPOINT_BACK } from '../../config';
 // };
 
 const InputChart=()=>{
+
+  const useRole = () => {
+    const auth = useAuthUser();
+    return auth?.uid;
+  };
+
+  const uid = useRole();
+  console.log(uid)
+
     const [sendData, setSendData] = useState(false);
     const [combinePredic, setCombinePredict]=useState([])
 
     const handleSubmit = async (e, selectedTensile, selectedComposite, corrosionType) => {
       e.preventDefault();
-        
+        const SID = Date.now()
         let depth;
         let thickPercentage;
       // Get all values from the form
@@ -107,7 +118,10 @@ const InputChart=()=>{
       // if(!length && !width && !diameter && !thickness && (!depth || !thickPercentage)){
       //   return alert('Please fill all the details before submit')
       // }
+
       const reqBody = {
+        UID:uid,
+        SID:SID,
           length: length,
           width: width,
           diameter: diameter,
