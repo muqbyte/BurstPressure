@@ -15,6 +15,8 @@ import { API_ENDPOINT_BACK } from '../../config';
 
 const PastData=()=>{
 
+
+
     const [listOfUser, setListOfUser]=useState([{
         id:"",
         username:"",
@@ -27,7 +29,7 @@ const PastData=()=>{
     const navigate = useNavigate();
 
     const InputChartPage=()=>{
-        navigate("/input")
+        navigate("/protectedHome")
     }   
 
     const getUsers = async () => {
@@ -115,6 +117,9 @@ const PastData=()=>{
                     
                      </div>
                 </div>
+                <div style={{paddingLeft:20}}>
+                     <button className="px-6 py-1 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" style={{marginTop:"50px"}} onClick={InputChartPage}>Go to Home Page</button>
+                     </div>
             </InputLayout>
                 
         {/* <div >

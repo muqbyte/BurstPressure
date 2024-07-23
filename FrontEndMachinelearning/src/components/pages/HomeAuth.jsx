@@ -7,6 +7,9 @@ import InputLayout from "../layout/InputLayout";
 import SecondNavigation from "../navigation/SecondNavigation";
 import MainMenuAuth from "../home/MainAuth";
 
+
+
+
 const HomeAuth=()=>{
     return(
         // <div style={{display:"flex", flexDirection:"column"}}>

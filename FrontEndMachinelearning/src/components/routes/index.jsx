@@ -1,13 +1,9 @@
 import React from "react";
 import {
-    createBrowserRouter,
-    RouterProvider,
     Navigate,
     Route,
     Routes,
-    Link,
     BrowserRouter,
-    useNavigate,
   } from "react-router-dom";
   import Home from "../pages/Home";
 import InputChart from "../pages/InputChart";
@@ -25,21 +21,31 @@ import RoleProtectedRoute from '../RoleProtectedRoute';
 
 import RequireAuth from '@auth-kit/react-router/RequireAuth'
 
-  const AppRoutes=()=>{
+import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated'
+
+
+const ProtectedRoute = ({ element, redirectTo }) => {
+  const isAuthenticated = useIsAuthenticated();
+  console.log('here',isAuthenticated) 
+  return !isAuthenticated ? element : <Navigate to={redirectTo} />;
+};
+
+const AppRoutes=()=>{
+
     return(
         <BrowserRouter>
             <Routes>
                 {/* this is the front page for every new user. It will display sign up and log in */}
                 <Route  path="/" element={<Home />} /> 
 
-                {/* This is the log in and sign up page */}
-                <Route  path="/login" element={<Login/>} />   
-                <Route  path="/signup" element={<SignUp/>} /> 
+                <Route path="/login" element={<ProtectedRoute element={<Login />} redirectTo="/protectedHome" />} />
+                <Route path="/signup" element={<ProtectedRoute element={<SignUp />} redirectTo="/protectedHome" />} />
+
 
                 {/* this is the page after login */}
                 <Route  path="/protectedHome" element={
                   <RequireAuth fallbackPath={'/login'}>
-                    <RoleProtectedRoute allowedRoles={[ 'user']}>
+                    <RoleProtectedRoute allowedRoles={[ 'admin','user']}>
                   <HomeAuth/>
                   </RoleProtectedRoute>
                       </RequireAuth>
@@ -48,7 +54,7 @@ import RequireAuth from '@auth-kit/react-router/RequireAuth'
                 {/* every user or admin or superuser can access this page for calculation and prediction */}
                 <Route path={'/input'} element={
                   <RequireAuth fallbackPath={'/login'}>
-                    <RoleProtectedRoute allowedRoles={[ 'user']}>
+                    <RoleProtectedRoute allowedRoles={['admin', 'user']}>
                   <InputChart/>
                   </RoleProtectedRoute>
                       </RequireAuth>

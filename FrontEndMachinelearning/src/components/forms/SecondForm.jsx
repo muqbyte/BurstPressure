@@ -133,7 +133,7 @@ const SecondForm=({handleSubmit})=>{
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
 
                 <div style={{display:"flex", flexDirection:"row", paddingBottom:16}}>
-                    <h2 className="block mb-2 text-sm font-bold text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>DEFECT CHARACTERISTIC</h2>
+                    <h2 className="block mb-2 text-sm font-bold text-gray-900 dark text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>DEFECT CHARACTERISTIC</h2>
                 </div>
 
     <div style={{display:"flex", flexDirection:"column",  alignItems:"center", width:"100%", gap:60}}>
@@ -178,6 +178,7 @@ const SecondForm=({handleSubmit})=>{
           style={{ color: 'white', backgroundColor:"transparent" }}
           id={corrosionType === 'Depth of corrosion' ? 'depth' : 'thickPercentage'}
           autoComplete="off"
+          required
         />
         <div className="p-2 text-sm text-white rounded-r-lg" style={{ width: '30px' }}>
           {corrosionType === 'Depth of corrosion' ? 'mm' : '%'}
@@ -245,19 +246,19 @@ const SecondForm=({handleSubmit})=>{
           <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
                 
                 <div style={{display:"flex", flexDirection:"row"}}>
-                    <h2 className="block mb-2 text-sm font-bold text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>BASE PIPE</h2>
+                    <h2 className="block mb-2 text-sm font-bold text-gray-900 dark text-white" style={{fontFamily:"PoppinsRegular",fontSize:15}}>BASE PIPE</h2>
                 </div>
 
                 <div style={{display:"flex", flexDirection:"row", alignItems:"self-end", width:"100%"}}>
 
                     <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center", width:"50%"}}>
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginBottom:5}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  style={{fontFamily:"PoppinsRegular"}}>Diameter</label>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark text-white"  style={{fontFamily:"PoppinsRegular"}}>Diameter</label>
                             <input type="text" id="diameter" className="p-1 text-center text-white bg-gray-700 rounded-lg outline-none" placeholder="mm" required  style={{width:100}} name="diameter" autoComplete="off"/>
                         </div>
 
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Tensile</label>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark text-white" style={{fontFamily:"PoppinsRegular"}}>Tensile</label>
                             <div className="relative w-full lg:max-w-sm">
                             <select className="w-full p-1 text-center text-white bg-gray-700 rounded-lg outline-none" style={{width:100}} onChange={handleTensile}>
                             <option hidden disabled selected value="">Psi</option>
@@ -271,7 +272,7 @@ const SecondForm=({handleSubmit})=>{
 
                     <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center", width:"50%"}}>
                     <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginBottom: 5 }}>
-                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{ fontFamily: "PoppinsRegular" }}>Thickness</label>
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark text-white" style={{ fontFamily: "PoppinsRegular" }}>Thickness</label>
                         <input
                             type="text"
                             step="any"
@@ -287,7 +288,7 @@ const SecondForm=({handleSubmit})=>{
 
 
                         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} >
-                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" style={{fontFamily:"PoppinsRegular"}}>Composite</label>
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark text-white" style={{fontFamily:"PoppinsRegular"}}>Composite</label>
                             <div className="relative w-full lg:max-w-sm">
                             <select className="w-full p-1 text-center text-white bg-gray-700 rounded-lg outline-none" style={{width:100}} onChange={handleComposite}>
                             <option hidden disabled selected value="">Type</option>

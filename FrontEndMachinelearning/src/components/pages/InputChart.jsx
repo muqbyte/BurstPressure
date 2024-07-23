@@ -96,6 +96,7 @@ const InputChart=()=>{
 
     const handleSubmit = async (e, selectedTensile, selectedComposite, corrosionType) => {
       e.preventDefault();
+      console.log(e.target)
         const SID = Date.now()
         let depth;
         let thickPercentage;
@@ -132,8 +133,7 @@ const InputChart=()=>{
           tensile: selectedTensile,
           composite: selectedComposite,
       };
-      console.log(reqBody);
-  
+
       try {
           // First API call
           // const theoryRes = await axios.post("https://pipeline.eagleattech.com/api/theory/calculate", reqBody);

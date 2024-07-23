@@ -35,6 +35,11 @@ const SignupForm = () => {
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
         const role=userType
+
+        if(!email || !username || !password || !confirmPassword){
+            
+            return alert("Please fill all details")
+         }
         if(password!==confirmPassword){
             
            return alert("Password does not match")
