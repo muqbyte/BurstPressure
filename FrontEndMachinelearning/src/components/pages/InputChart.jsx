@@ -143,7 +143,7 @@ const InputChart=()=>{
   
           // Second API call
           const predictionRes = await axios.post(`${API_ENDPOINT_ML}/predict/unrepaired`, reqBody);
-          // console.log(predictionRes.data);
+          console.log(predictionRes.data);
   
           const unrepairArray = predictionRes.data;
           setCombinePredict(unrepairArray);

@@ -23,24 +23,25 @@ const PastData=()=>{
     // NEW TABLE
 
 
-    const columns = ['UID','SID', 'tensile', 'depth','diameter','thickness','width', 'length','composite', 'burst','type' ];
+    const columns = ['UID','SID','type' , 'tensile', 'depth','diameter','thickness','length','width', 'composite', 'burst',];
     const columnsPrediction = ['UID','SID','category', 'type', 'tensile', 'depth','length','width','diameter','thickness','composite','burst' ];
     // const columns = ['SID', 'tensile', 'depth','width', 'length', 'burst','type', 'timestamp' ];
     // const columnsPrediction = ['SID','category', 'type', 'tensile', 'depth','length','width',  'wrap','burst','timestamp' ];
     
     // NEW TABLE
     const [listOfUser, setListOfUser]=useState([{
-        UID:"",
-        SID:"",
+      UID:"",
+      SID:"",
+        type:"",
         tensile:"",
         depth:"",
         diameter:"",
         thickness:"",
-        width:"",
         length:"",
+        width:"",
         composite:"",
         burst:"",
-        type:""
+        
     }])
 
     const [listOfDataPrediction, setListOfDataPrediction]=useState([{
@@ -98,6 +99,7 @@ const PastData=()=>{
               return obj;
             });
 
+            // console.log(updatedArray)
                setListOfUser(updatedArray)
               //  setListOfUser(getAllData.data)
 
@@ -123,7 +125,7 @@ const PastData=()=>{
               });
               return obj;
             });
-
+            
             setListOfDataPrediction(updatedArray)
 
             } 
