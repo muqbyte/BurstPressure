@@ -145,6 +145,7 @@ const SignupForm = () => {
                     <a
            onClick={signinPage}
             className="font-semibold text-white cursor-pointer text-m hover:text-gray-300"
+            style={{color:"#00A19C"}}
         >
             SIGN IN
         </a>

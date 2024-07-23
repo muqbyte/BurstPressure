@@ -20,6 +20,9 @@ const LoginForm=()=>{
     const signupPage=()=>{
         navigate('/signup')
     }
+    const forget=()=>{
+        navigate('/forget-password')
+    }
     const handleSubmit=async(e)=>{
         
         e.preventDefault();
@@ -76,6 +79,17 @@ const LoginForm=()=>{
                     <input className="text-white border border-gray-600 bg-slate-700  p-2.5 rounded-lg" placeholder="******" id="password" autoComplete="off"></input>
                 </div>
 
+                <div className="flex flex-row gap-2" >
+                    {/* <p className="font-semibold text-white text-m">
+                    Forget password? </p> */}
+                    <a
+            onClick={forget}
+            className="font-semibold text-white cursor-pointer text-m hover:text-gray-300"
+            style={{color:"#00A19C"}}
+        >
+            Forget your password?
+        </a>
+                </div>
                 <div className="flex flex-col mt-4">
                     <button className="w-full p-2 text-white rounded-xl bg-sky-600">Sign in</button>
                 </div>
@@ -86,6 +100,7 @@ const LoginForm=()=>{
                     <a
             onClick={signupPage}
             className="font-semibold text-white cursor-pointer text-m hover:text-gray-300"
+            style={{color:"#00A19C"}}
         >
             REGISTER NOW
         </a>

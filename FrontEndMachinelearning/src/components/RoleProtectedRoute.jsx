@@ -3,20 +3,38 @@ import { Navigate } from 'react-router-dom';
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated'
 
-const RoleProtectedRoute = ({ children, allowedRoles }) => {
+const RoleProtectedRoute = ({ children, allowedRoles, verified }) => {
     const isAuthenticated = useIsAuthenticated()
 
-    const useRole = () => {
+
+
+    const useVerified = () => {
         const auth = useAuthUser();
-        return auth?.role;
+        return auth?.verified;
       };
 
-      const role = useRole().toLowerCase();
+      const isVerified = useVerified()
+    
+      console.log("isVerified",isVerified)
 
+
+  //  if(!isVerified && role!='admin'){
+  //   return <Navigate to="/verified" />;
+  //  }   
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
 
+  const useRole = () => {
+    const auth = useAuthUser();
+    return auth?.role;
+  };
+
+  const role = useRole().toLowerCase();
+  
+  if(!isVerified && role!='admin'){
+    return <Navigate to="/verified" />;
+   }   
   // console.log(role)
   // console.log(allowedRoles)
 //   if (!allowedRoles.includes(role)) {
