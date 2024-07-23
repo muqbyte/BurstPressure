@@ -72,10 +72,10 @@ const PastData=()=>{
         const reqBody = {
             email,
         };
-        console.log(email)
+        // console.log(email)
         try {
             const deleteUser = await axios.delete(`${API_ENDPOINT_BACK}/api/admin/user`, {data:reqBody});
-            console.log(deleteUser)
+            // console.log(deleteUser)
             getUsers()
 
         } catch (error) {

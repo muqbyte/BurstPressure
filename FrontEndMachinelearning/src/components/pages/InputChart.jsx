@@ -89,14 +89,14 @@ const InputChart=()=>{
   };
 
   const uid = useRole();
-  console.log(uid)
+  // console.log(uid)
 
     const [sendData, setSendData] = useState(false);
     const [combinePredic, setCombinePredict]=useState([])
 
     const handleSubmit = async (e, selectedTensile, selectedComposite, corrosionType) => {
       e.preventDefault();
-      console.log(e.target)
+      // console.log(e.target)
         const SID = Date.now()
         let depth;
         let thickPercentage;
@@ -143,7 +143,7 @@ const InputChart=()=>{
   
           // Second API call
           const predictionRes = await axios.post(`${API_ENDPOINT_ML}/predict/unrepaired`, reqBody);
-          console.log(predictionRes.data);
+          // console.log(predictionRes.data);
   
           const unrepairArray = predictionRes.data;
           setCombinePredict(unrepairArray);

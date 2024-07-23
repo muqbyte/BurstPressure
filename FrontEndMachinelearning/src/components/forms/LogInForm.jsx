@@ -30,11 +30,11 @@ const LoginForm=()=>{
             email,
             password,
         };
-        console.log(reqBody)
+        // console.log(reqBody)
         try {
             const loginUser = await axios.post(`${API_ENDPOINT_BACK}/api/auth/login`, reqBody);
             // const loginUser = await axios.post("http://localhost:5500/api/auth/login", reqBody);
-            console.log(loginUser)
+            // console.log(loginUser)
             if(signIn({
                 auth: {
                     token: loginUser.data.token,

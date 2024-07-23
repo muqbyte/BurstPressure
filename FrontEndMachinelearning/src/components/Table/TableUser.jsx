@@ -14,7 +14,7 @@ const TableComponent = ({listOfUser,updateUserList, handleUserDelete }) =>  {
     const handleDelete = (email,role) => {
 
         handleUserDelete(email); // Call the update function passed from the parent
-        console.log('here')
+        // console.log('here')
         setIsModalOpen(false);
       };
     const handleUpdate = (email,role) => {
