@@ -58,10 +58,10 @@ const PredictionChart = (props) => {
 
         // Push each object into the newData array
         newData.push({ x: "Unrepaired", y: unrepaired });
-        newData.push({ x: "Repaired Layer-2", y: repairedLayer2 });
-        newData.push({ x: "Repaired Layer-3", y: repairedLayer3 });
-        newData.push({ x: "Repaired Layer-4", y: repairedLayer4 });
-        newData.push({ x: "Repaired Layer-5", y: repairedLayer5 });
+        newData.push({ x: "Repaired 2-Layer", y: repairedLayer2 });
+        newData.push({ x: "Repaired 3-Layer", y: repairedLayer3 });
+        newData.push({ x: "Repaired 4-Layer", y: repairedLayer4 });
+        newData.push({ x: "Repaired 5-Layer", y: repairedLayer5 });
         // newData.push({ x: twolayer.type, y: twolayer.burst });
         // newData.push({ x: threelayer.type, y: threelayer.burst });
         // newData.push({ x: onelayer.type, y: onelayer.burst });
